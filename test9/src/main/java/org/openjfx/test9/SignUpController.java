@@ -26,10 +26,33 @@ public class SignUpController {
 
     @FXML
     private Label outError;
+    
+    private final String regex = "^(?=.*[A-Z])(?=.*\\d).{8,}$";
+    
+    
 
     @FXML
-    void SignIn(ActionEvent event) {
-
+    void SignIn(ActionEvent event) throws Exception{
+    	
+    	System.out.println(validPassword(inPassword.getText()));
+    }
+    private boolean validPassword(String password) {
+    	if(inPassword.getText().equals(inConfirm.getText())) {
+    		if(password.matches(regex)) {
+    			return true;
+    		}
+    		else {
+    			outError.setVisible(true);
+    			outError.setText("Password doesn´t match requirements" + "\n" + "Make sure password has:" + "\n"
+    		+ "1. at least 1 capital leter" + "\n" + "2. at least 8 total characters" + "\n" + "3. at least 1 number");
+    		}
+    		
+    	}
+    	else {
+    		outError.setVisible(true);
+    		outError.setText("Please make sure passwords match");
+    	}
+    	return false;
     }
 
 }

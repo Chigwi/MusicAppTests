@@ -35,7 +35,7 @@ public class App extends Application {
 	private final String name = "Last";
 	
 	private Usuario Allie = new Usuario ("Allie","Chigwi23");
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -68,11 +68,20 @@ public class App extends Application {
 			e.printStackTrace();
 		}
 	}
-	//method that changes screens
+	/**
+	 * method in charge of switching screens
+	 * @param fxml
+	 * @throws IOException
+	 */
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-    
+    /**
+     * loads the fxml file for the screen selected
+     * @param fxml
+     * @return
+     * @throws IOException
+     */
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
