@@ -42,9 +42,9 @@ public class PrimaryController {
 	
 	String home = System.getProperty("user.home");
 	
-	File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
+	File carpeta = new File(home + "\\GenreDive\\\\Usuarios");
 	
-	private String path = home + "\\SerialTests\\Usuarios\\";	
+	private String path = home + "\\GenreDive\\Usuarios\\";	
 	
 	private String name = "Ejemplo";
 

@@ -24,9 +24,9 @@ public class App extends Application {
 	
 	String home = System.getProperty("user.home");
 	
-	File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
+	File carpeta = new File(home + "\\GenreDive\\\\Usuarios");
 	
-	private String path = home + "\\SerialTests\\Usuarios\\";	
+	private String path = home + "\\GenreDive\\Usuarios\\";	
 	
 	private String name = "Last";
 	
@@ -37,9 +37,12 @@ public class App extends Application {
 			System.out.println(System.getProperty("user.home"));
 			System.out.println(getClass().getName());
 			System.out.println(J.deserializarUser(path, name));
+			//gets the last user that was logged in
 			lastUser = J.deserializarUser(path, name);
 			lastUser.setLoggedIn(false);
-			if(lastUser.isLoggedIn()) {
+			//checks if said user logged out before closing the app
+			if(lastUser!=null && lastUser.isLoggedIn()) {
+				//if its logged in lets the user directly into the app functionallity
 				AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/MostrarDatos.fxml"));
 				scene = new Scene(root);
 				String css = this.getClass().getResource("application.css").toExternalForm();
@@ -48,6 +51,7 @@ public class App extends Application {
 				primaryStage.show();
 			}
 			else {
+				//if not takes the user into the log in screen
 				AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/PantallaDeIngreso.fxml"));
 				scene = new Scene(root);
 				String css = this.getClass().getResource("application.css").toExternalForm();
@@ -60,7 +64,7 @@ public class App extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+	//method that changes screens
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
