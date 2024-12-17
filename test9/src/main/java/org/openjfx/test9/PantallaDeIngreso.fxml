@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.test9.PrimaryController">
+   <children>
+      <Label layoutX="237.0" layoutY="54.0" text="This shows that it works" />
+      <Label fx:id="OutError" layoutX="88.0" layoutY="191.0" text="Wrong username or password" visible="false" wrapText="true" />
+      <Button fx:id="Secondary" layoutX="225.0" layoutY="286.0" mnemonicParsing="false" onAction="#Switch" prefHeight="59.0" prefWidth="149.0" text="Salir" />
+   </children>
+</AnchorPane>
