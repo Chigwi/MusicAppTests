@@ -35,11 +35,7 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			System.out.println(carpeta.mkdirs());
-			System.out.println(System.getProperty("user.home"));
 			System.out.println(getClass().getName());
-			System.out.println(J.deserializarUser(path, name));
-			J.serializarUser(Allie, path, Allie.getUsername());
 			//gets the last user that was logged in
 			lastUser = J.deserializarUser(path, name);
 			System.out.println(lastUser.isLoggedIn());

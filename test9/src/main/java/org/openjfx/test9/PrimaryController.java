@@ -76,16 +76,20 @@ public class PrimaryController {
 			}
 			
 		}
+		else {
+			//lets the user know that the password is incorrect
+			OutError.setVisible(true);
+		}
     }
     
     @FXML
     void Exit(ActionEvent event) {
-
+    	System.exit(0);
     }
 
     @FXML
     void switchToPrimary(ActionEvent event) {
-
+    	
     }
     //checks if the password is correct for the user name given 
     private boolean checkPass (String userName, String Password) {
