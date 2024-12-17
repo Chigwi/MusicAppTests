@@ -12,6 +12,6 @@
       <TextField fx:id="inConfirm" layoutX="47.0" layoutY="174.0" promptText="Confirm password" />
       <Button fx:id="SignIn" layoutX="96.0" layoutY="322.0" mnemonicParsing="false" onAction="#SignIn" text="Sign in" />
       <Label layoutX="286.0" layoutY="28.0" text="Sign in" />
-      <Label fx:id="outError" layoutX="304.0" layoutY="78.0" text="error message" wrapText="true" />
+      <Label fx:id="outError" layoutX="304.0" layoutY="78.0" wrapText="true" />
    </children>
 </AnchorPane>

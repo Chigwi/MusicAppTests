@@ -4,13 +4,17 @@
  */
 package org.openjfx.test9;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class SignUpController {
+public class SignUpController implements Initializable {
 
     @FXML
     private Button SignIn;
@@ -54,5 +58,12 @@ public class SignUpController {
     	}
     	return false;
     }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		outError.setVisible(true);
+		outError.setText("Password requirements" + "\n" + "Make sure password has:" + "\n"
+    		+ "1. at least 1 capital leter" + "\n" + "2. at least 8 total characters" + "\n" + "3. at least 1 number");
+		
+	}
 
 }
