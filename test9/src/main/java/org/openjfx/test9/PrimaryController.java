@@ -88,8 +88,8 @@ public class PrimaryController {
     }
 
     @FXML
-    void switchToPrimary(ActionEvent event) {
-    	
+    void switchToPrimary(ActionEvent event) throws Exception{
+    	App.setRoot("SignUpScreen");
     }
     //checks if the password is correct for the user name given 
     private boolean checkPass (String userName, String Password) {
