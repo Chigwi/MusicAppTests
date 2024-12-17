@@ -1,3 +1,7 @@
+/**
+ * @author Allyson
+ * @since 15/12/24
+ */
 package org.openjfx.test9.model;
 
 import java.io.Serializable;
@@ -5,9 +9,6 @@ import java.util.HashSet;
 
 public class Usuario implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private String Username,Password;
