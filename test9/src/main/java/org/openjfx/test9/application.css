@@ -1,7 +1,7 @@
 /* Root container styling */
 .root {
     -fx-background-color: linear-gradient(to bottom, #2c2c38, #3a3a4e);
-    -fx-font-family: "Georgia", "Palatino", serif; /* Fancy font family */
+    -fx-font-family: "Helvetica", Arial, sans-serif; /* Updated font family */
 }
 
 /* Styling for labels */
@@ -20,7 +20,7 @@
     -fx-background-radius: 10px;
     -fx-padding: 7px;
     -fx-font-size: 14px; /* Larger font for readability */
-    -fx-font-family: "Georgia", serif; /* Matching font family */
+    -fx-font-family: "Helvetica", Arial, sans-serif; /* Updated font family */
     -fx-text-fill: #3a3a4e; /* Lighter dark gray text */
 }
 
@@ -34,7 +34,7 @@
     -fx-background-color: #6a4c93; /* Original purple button */
     -fx-text-fill: #ffffff; /* White text */
     -fx-font-size: 16px;
-    -fx-font-family: "Georgia", serif;
+    -fx-font-family: "Helvetica", Arial, sans-serif; /* Updated font family */
     -fx-font-weight: bold;
     -fx-background-radius: 10px;
     -fx-cursor: hand;
@@ -55,22 +55,22 @@
 .check-box {
     -fx-text-fill: #325a7c; /* Lighter dark gray text for checkbox */
     -fx-font-size: 14px;
-    -fx-font-family: "Georgia", serif;
+    -fx-font-family: "Helvetica", Arial, sans-serif; /* Updated font family */
+    -fx-font-weight: bold; /* Bold text */
     -fx-cursor: hand;
-    -fx-font-weight: bold;
 }
 
 .check-box .box {
     -fx-background-color: #ffffff; /* White background */
-    -fx-border-color: #5a7d9e; /* Lighter navy border */
+    -fx-border-color: #6a4c93; /* Same purple as buttons */
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
     -fx-padding: 3px;
 }
 
 .check-box:selected .box {
-    -fx-background-color: #5a7d9e; /* Lighter navy background when checked */
-    -fx-border-color: #5a7d9e; /* Lighter navy border when checked */
+    -fx-background-color: #6a4c93; /* Same purple as buttons */
+    -fx-border-color: #6a4c93; /* Same purple border when checked */
 }
 
 .check-box:selected .mark {
@@ -78,14 +78,14 @@
 }
 
 .check-box .box:hover {
-    -fx-border-color: #3a3a4e; /* Lighter dark gray border on hover */
+    -fx-border-color: #82489b; /* Same hover purple as buttons */
 }
 
 /* Styling for error messages or prompts */
 .error-label {
     -fx-text-fill: #d9534f; /* Softer brick red text for errors */
     -fx-font-size: 14px; /* Larger font size */
-    -fx-font-family: "Georgia", serif; /* Fancy font */
+    -fx-font-family: "Helvetica", Arial, sans-serif; /* Updated font family */
     -fx-font-style: italic;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0.5, 0, 1);
 }
@@ -94,7 +94,7 @@
 .header {
     -fx-text-fill: #325a7c; /* Slightly lighter navy blue text */
     -fx-font-size: 28px; /* Larger size for header */
-    -fx-font-family: "Georgia", serif; /* Fancy font family */
+    -fx-font-family: "Helvetica", Arial, sans-serif; /* Updated font family */
     -fx-font-weight: bold;
     -fx-padding: 15px 0;
     -fx-text-alignment: center;
