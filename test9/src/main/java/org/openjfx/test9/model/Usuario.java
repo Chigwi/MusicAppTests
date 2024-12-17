@@ -1,6 +1,7 @@
 package org.openjfx.test9.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 
 public class Usuario implements Serializable {
 	
@@ -8,43 +9,71 @@ public class Usuario implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String name,age,gender;
-
-	public Usuario(String name, String age, String gender) {
+	
+	private String Username,Password;
+	
+	private HashSet <String> ListenedGenres,MyFavorites;
+	
+	
+	
+	
+	public Usuario(String username, String password) {
 		super();
-		this.name = name;
-		this.age = age;
-		this.gender = gender;
+		Username = username;
+		Password = password;
+		ListenedGenres = new HashSet <String>();
+		MyFavorites = new HashSet <String>();
 	}
 
-	public String getName() {
-		return name;
+
+	public String getUsername() {
+		return Username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+
+	public void setUsername(String username) {
+		Username = username;
 	}
 
-	public String getAge() {
-		return age;
+
+	public String getPassword() {
+		return Password;
 	}
 
-	public void setAge(String age) {
-		this.age = age;
+
+	public void setPassword(String password) {
+		Password = password;
 	}
 
-	public String getGender() {
-		return gender;
+
+	public HashSet<String> getListenedGenres() {
+		return ListenedGenres;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+
+	public void setListenedGenres(HashSet<String> listenedGenres) {
+		ListenedGenres = listenedGenres;
 	}
+
+
+	public HashSet<String> getMyfavorites() {
+		return MyFavorites;
+	}
+
+
+	public void setMyfavorites(HashSet<String> myfavorites) {
+		MyFavorites = myfavorites;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Usuario [name=" + name + ", age=" + age + ", gender=" + gender + "]";
+		return "Usuario [Username=" + Username + ", ListenedGenres=" + ListenedGenres + ", MyFavorites=" + MyFavorites
+				+ "]";
 	}
+
+
+
 	
 	
 }

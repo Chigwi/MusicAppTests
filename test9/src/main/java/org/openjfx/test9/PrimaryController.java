@@ -26,7 +26,7 @@ public class PrimaryController {
     
     private SeralizationControler J = new SeralizationControler();
 	
-	private Usuario Ejemplo = new Usuario ("Allie", "23","female");
+	private Usuario Ejemplo = new Usuario ("Allie","Chigwi23");
 	
 	String home = System.getProperty("user.home");
 	
