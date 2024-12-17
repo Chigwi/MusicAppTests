@@ -1,16 +1,17 @@
 package org.openjfx.test9;
+/**
+ * @author Allyson
+ * @since 15/12/24
+ */
 
-import java.io.IOException;
+
 
 import org.openjfx.test9.model.Usuario;
 import org.openjfx.test9.services.SeralizationControler;
-
-import javafx.fxml.FXML;
-
-import java.io.File;
 import java.io.IOException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import java.io.File;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -18,7 +19,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class PrimaryController {
-
+	//fxml attributes
     @FXML
     private Button BttExit;
 
@@ -39,17 +40,20 @@ public class PrimaryController {
     
     @FXML
     private CheckBox isLoggedIn;
-    
+    //object in charge of serialization
     private SeralizationControler J = new SeralizationControler();
-	
+	//users home directory
 	private final String home = System.getProperty("user.home");
-	
+	//app directory for users
 	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
-	
+	//path towards the users binary files
 	private final String path = home + "\\GenreDive\\Users\\";	
 	
-	private String name = "Ejemplo";
-
+	/**
+	 * Method in charge of logging the user in
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
     void switchToSecondary(ActionEvent event) throws IOException {
 		//gets the user input for username and password
@@ -81,27 +85,42 @@ public class PrimaryController {
 			OutError.setVisible(true);
 		}
     }
-    
+    //closes the app
+	/**
+	 * closes the app
+	 * @param event
+	 */
     @FXML
     void Exit(ActionEvent event) {
     	System.exit(0);
     }
-
+    //takes the user to the screen to create a new user
+    /**
+     * switches screen to sign in
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void switchToPrimary(ActionEvent event) throws Exception{
     	App.setRoot("SignUpScreen");
     }
     //checks if the password is correct for the user name given 
+    /**
+     * method in charge of checking if the password is correct
+     * @param userName
+     * @param Password
+     * @return
+     */
     private boolean checkPass (String userName, String Password) {
-    	try {
+    	try {//checks if the password given is the same as the one registered for the user
     		if(J.deserializarUser(path, userName).getUsername().equals(userName)
     			&& J.deserializarUser(path, userName).getPassword().equals(Password)) {
     			return true;
     		}
-    	}catch(Exception e) {
+    	}catch(Exception e) {//exception in case the user doesnt exist
     		OutError.setText("User doesn't exist");
     		OutError.setVisible(true);
-    	}
+    	}//in case the username and password are incorrect it returns false
     	return false;
     }
 }
