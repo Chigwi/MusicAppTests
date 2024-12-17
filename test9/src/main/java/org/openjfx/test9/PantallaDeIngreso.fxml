@@ -12,11 +12,11 @@
       <Label layoutX="237.0" layoutY="22.0" text="This shows that it works" />
       <TextField fx:id="InUser" layoutX="88.0" layoutY="92.0" promptText="Username" />
       <Button fx:id="primaryButton" layoutX="88.0" layoutY="304.0" mnemonicParsing="false" onAction="#switchToSecondary" text="LogIn" />
-      <Label fx:id="OutError" layoutX="88.0" layoutY="191.0" text="Wrong username or password" visible="false" wrapText="true" />
       <PasswordField fx:id="InPassword" layoutX="88.0" layoutY="147.0" promptText="Password" />
       <Button fx:id="BttExit" layoutX="375.0" layoutY="304.0" mnemonicParsing="false" onAction="#Exit" text="Exit" />
       <Label layoutX="365.0" layoutY="118.0" text="New User?" />
       <Button fx:id="BttSignUp" layoutX="363.0" layoutY="147.0" mnemonicParsing="false" onAction="#switchToPrimary" text="Sign up!" />
       <CheckBox fx:id="isLoggedIn" layoutX="88.0" layoutY="200.0" mnemonicParsing="false" text="Keep me logged in" />
+      <Label fx:id="OutError" layoutX="83.0" layoutY="257.0" text="Wrong username or password" visible="false" wrapText="true" />
    </children>
 </AnchorPane>

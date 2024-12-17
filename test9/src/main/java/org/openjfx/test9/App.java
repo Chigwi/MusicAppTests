@@ -30,6 +30,8 @@ public class App extends Application {
 	
 	private final String name = "Last";
 	
+	private Usuario Allie = new Usuario ("Allie","Chigwi23");
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -37,9 +39,11 @@ public class App extends Application {
 			System.out.println(System.getProperty("user.home"));
 			System.out.println(getClass().getName());
 			System.out.println(J.deserializarUser(path, name));
+			J.serializarUser(Allie, path, Allie.getUsername());
 			//gets the last user that was logged in
 			lastUser = J.deserializarUser(path, name);
-			//lastUser.setLoggedIn(false);
+			System.out.println(lastUser.isLoggedIn());
+			lastUser.setLoggedIn(false);
 			//checks if said user logged out before closing the app
 			if(lastUser!=null && lastUser.isLoggedIn()) {
 				//if its logged in lets the user directly into the app functionallity

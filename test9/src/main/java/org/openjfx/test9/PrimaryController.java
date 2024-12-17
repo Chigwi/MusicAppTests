@@ -42,8 +42,6 @@ public class PrimaryController {
     
     private SeralizationControler J = new SeralizationControler();
 	
-	private Usuario Ejemplo = new Usuario ("Allie","Chigwi23");
-	
 	private final String home = System.getProperty("user.home");
 	
 	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
@@ -54,10 +52,30 @@ public class PrimaryController {
 
 	@FXML
     void switchToSecondary(ActionEvent event) throws IOException {
-    	Ejemplo.setLoggedIn(true);
-    	J.serializarUser(Ejemplo, path, name);
-    	J.serializarUser(Ejemplo, path, "Last");
-    	App.setRoot("MostrarDatos");	
+		//gets the user input for username and password
+		String userName = InUser.getText();
+		String password = InPassword.getText();
+		//checks if its correct
+		if(checkPass(userName,password)) {
+			//turns newly logged in user into the last logged in user
+			Usuario last = J.deserializarUser(path, "Last");
+			J.serializarUser(last, path, "Last");
+			System.out.println(J.deserializarUser(path, "Last").toString());
+			//checks if user wants to be kept logged in
+			if(isLoggedIn.isSelected()) {
+				//if the user wants to be kept logged in it switches the logged in valule to true
+				last.setLoggedIn(true);
+				J.serializarUser(last, path, "Last");
+				App.setRoot("MostrarDatos");
+			}
+			else {
+				//if not switches it to false
+				last.setLoggedIn(false);
+				J.serializarUser(last, path, "Last");
+				App.setRoot("MostrarDatos");
+			}
+			
+		}
     }
     
     @FXML
