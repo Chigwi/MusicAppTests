@@ -18,6 +18,7 @@ private static Scene scene;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			System.out.println(System.getProperty("user.home"));
 			System.out.println(getClass().getName());
 			AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/PantallaDeIngreso.fxml"));
 			scene = new Scene(root);
