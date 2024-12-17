@@ -22,13 +22,13 @@ public class App extends Application {
 	
 	private static Usuario lastUser;
 	
-	String home = System.getProperty("user.home");
+	private final String home = System.getProperty("user.home");
 	
-	File carpeta = new File(home + "\\GenreDive\\\\Usuarios");
+	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
 	
-	private String path = home + "\\GenreDive\\Usuarios\\";	
+	private final String path = home + "\\GenreDive\\Users\\";	
 	
-	private String name = "Last";
+	private final String name = "Last";
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -39,7 +39,7 @@ public class App extends Application {
 			System.out.println(J.deserializarUser(path, name));
 			//gets the last user that was logged in
 			lastUser = J.deserializarUser(path, name);
-			lastUser.setLoggedIn(false);
+			//lastUser.setLoggedIn(false);
 			//checks if said user logged out before closing the app
 			if(lastUser!=null && lastUser.isLoggedIn()) {
 				//if its logged in lets the user directly into the app functionallity

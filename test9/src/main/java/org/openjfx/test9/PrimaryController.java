@@ -40,11 +40,11 @@ public class PrimaryController {
 	
 	private Usuario Ejemplo = new Usuario ("Allie","Chigwi23");
 	
-	String home = System.getProperty("user.home");
+	private final String home = System.getProperty("user.home");
 	
-	File carpeta = new File(home + "\\GenreDive\\\\Usuarios");
+	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
 	
-	private String path = home + "\\GenreDive\\Usuarios\\";	
+	private final String path = home + "\\GenreDive\\Users\\";	
 	
 	private String name = "Ejemplo";
 
