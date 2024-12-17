@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.test9.PrimaryController">
    <children>
-      <Label layoutX="237.0" layoutY="54.0" text="This shows that it works" />
+      <Label layoutX="237.0" layoutY="22.0" text="This shows that it works" />
+      <TextField fx:id="InUser" layoutX="88.0" layoutY="92.0" promptText="Username" />
+      <Button fx:id="primaryButton" layoutX="88.0" layoutY="304.0" mnemonicParsing="false" onAction="#switchToSecondary" text="LogIn" />
       <Label fx:id="OutError" layoutX="88.0" layoutY="191.0" text="Wrong username or password" visible="false" wrapText="true" />
-      <Button fx:id="Secondary" layoutX="225.0" layoutY="286.0" mnemonicParsing="false" onAction="#Switch" prefHeight="59.0" prefWidth="149.0" text="Salir" />
+      <PasswordField fx:id="InPassword" layoutX="88.0" layoutY="147.0" promptText="Password" />
+      <Button fx:id="BttExit" layoutX="375.0" layoutY="304.0" mnemonicParsing="false" onAction="#Exit" text="Exit" />
+      <Label layoutX="365.0" layoutY="118.0" text="New User?" />
+      <Button fx:id="BttSignUp" layoutX="363.0" layoutY="147.0" mnemonicParsing="false" onAction="#switchToPrimary" text="Sign up!" />
    </children>
 </AnchorPane>

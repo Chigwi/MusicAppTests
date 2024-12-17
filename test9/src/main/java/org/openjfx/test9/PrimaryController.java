@@ -7,22 +7,34 @@ import org.openjfx.test9.services.SeralizationControler;
 
 import javafx.fxml.FXML;
 
-
-
 import java.io.File;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class PrimaryController {
+
+    @FXML
+    private Button BttExit;
+
+    @FXML
+    private Button BttSignUp;
+
+    @FXML
+    private PasswordField InPassword;
+
+    @FXML
+    private TextField InUser;
 
     @FXML
     private Label OutError;
 
     @FXML
-    private Button Secondary;
+    private Button primaryButton;
     
     private SeralizationControler J = new SeralizationControler();
 	
@@ -37,11 +49,20 @@ public class PrimaryController {
 	private String name = "Ejemplo";
 
     @FXML
-    void Switch(ActionEvent event) throws IOException {
+    void switchToSecondary(ActionEvent event) throws IOException {
     	carpeta.mkdirs();
     	J.serializarUser(Ejemplo, path, name);
     	App.setRoot("MostrarDatos");
     }
+    
+    @FXML
+    void Exit(ActionEvent event) {
 
+    }
+
+    @FXML
+    void switchToPrimary(ActionEvent event) {
+
+    }
 }
 

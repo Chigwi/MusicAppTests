@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 public class App extends Application {
 	
 private static Scene scene;
+
 	
 	@Override
 	public void start(Stage primaryStage) {
