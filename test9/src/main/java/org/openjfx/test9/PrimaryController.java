@@ -50,7 +50,6 @@ public class PrimaryController {
 
 	@FXML
     void switchToSecondary(ActionEvent event) throws IOException {
-    	carpeta.mkdirs();
     	Ejemplo.setLoggedIn(true);
     	J.serializarUser(Ejemplo, path, name);
     	J.serializarUser(Ejemplo, path, "Last");

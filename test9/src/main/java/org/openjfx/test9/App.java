@@ -1,5 +1,6 @@
 package org.openjfx.test9;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.openjfx.test9.model.Usuario;
@@ -23,6 +24,8 @@ public class App extends Application {
 	
 	String home = System.getProperty("user.home");
 	
+	File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
+	
 	private String path = home + "\\SerialTests\\Usuarios\\";	
 	
 	private String name = "Last";
@@ -30,10 +33,12 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			System.out.println(carpeta.mkdirs());
 			System.out.println(System.getProperty("user.home"));
 			System.out.println(getClass().getName());
 			System.out.println(J.deserializarUser(path, name));
 			lastUser = J.deserializarUser(path, name);
+			lastUser.setLoggedIn(false);
 			if(lastUser.isLoggedIn()) {
 				AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/MostrarDatos.fxml"));
 				scene = new Scene(root);
