@@ -1,1 +1,102 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* Root container styling */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #2c2c38, #3a3a4e);
+    -fx-font-family: "Georgia", "Palatino", serif; /* Fancy font family */
+}
+
+/* Styling for labels */
+.label {
+    -fx-text-fill: #325a7c; /* Slightly lighter navy blue text */
+    -fx-font-size: 16px; /* Slightly larger font */
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 3, 0.5, 0, 1); /* Subtle shadow */
+}
+
+/* Styling for text fields */
+.text-field, .password-field {
+    -fx-background-color: #ffffff; /* White background for better contrast */
+    -fx-border-color: #5a7d9e; /* Lighter navy border */
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-background-radius: 10px;
+    -fx-padding: 7px;
+    -fx-font-size: 14px; /* Larger font for readability */
+    -fx-font-family: "Georgia", serif; /* Matching font family */
+    -fx-text-fill: #3a3a4e; /* Lighter dark gray text */
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: linear-gradient(to right, #5a7d9e, #325a7c); /* Gradient lighter navy border on focus */
+    -fx-background-color: #f4f4f4; /* Subtle light background on focus */
+}
+
+/* Styling for buttons */
+.button {
+    -fx-background-color: #6a4c93; /* Original purple button */
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-font-size: 16px;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 10px 20px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.5, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #82489b; /* Slightly lighter purple on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #583c6e; /* Darker purple when pressed */
+}
+
+/* Checkbox styling */
+.check-box {
+    -fx-text-fill: #325a7c; /* Lighter dark gray text for checkbox */
+    -fx-font-size: 14px;
+    -fx-font-family: "Georgia", serif;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+.check-box .box {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-color: #5a7d9e; /* Lighter navy border */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 3px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #5a7d9e; /* Lighter navy background when checked */
+    -fx-border-color: #5a7d9e; /* Lighter navy border when checked */
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #ffffff; /* White checkmark */
+}
+
+.check-box .box:hover {
+    -fx-border-color: #3a3a4e; /* Lighter dark gray border on hover */
+}
+
+/* Styling for error messages or prompts */
+.error-label {
+    -fx-text-fill: #d9534f; /* Softer brick red text for errors */
+    -fx-font-size: 14px; /* Larger font size */
+    -fx-font-family: "Georgia", serif; /* Fancy font */
+    -fx-font-style: italic;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0.5, 0, 1);
+}
+
+/* Header text */
+.header {
+    -fx-text-fill: #325a7c; /* Slightly lighter navy blue text */
+    -fx-font-size: 28px; /* Larger size for header */
+    -fx-font-family: "Georgia", serif; /* Fancy font family */
+    -fx-font-weight: bold;
+    -fx-padding: 15px 0;
+    -fx-text-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0.7, 0, 2);
+}
