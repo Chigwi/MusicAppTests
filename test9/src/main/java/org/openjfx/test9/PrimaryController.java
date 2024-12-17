@@ -48,11 +48,13 @@ public class PrimaryController {
 	
 	private String name = "Ejemplo";
 
-    @FXML
+	@FXML
     void switchToSecondary(ActionEvent event) throws IOException {
     	carpeta.mkdirs();
+    	Ejemplo.setLoggedIn(true);
     	J.serializarUser(Ejemplo, path, name);
-    	App.setRoot("MostrarDatos");
+    	J.serializarUser(Ejemplo, path, "Last");
+    	App.setRoot("MostrarDatos");	
     }
     
     @FXML

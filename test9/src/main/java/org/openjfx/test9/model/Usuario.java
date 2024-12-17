@@ -14,6 +14,8 @@ public class Usuario implements Serializable {
 	
 	private HashSet <String> ListenedGenres,MyFavorites;
 	
+	private boolean loggedIn;
+	
 	
 	
 	
@@ -23,6 +25,26 @@ public class Usuario implements Serializable {
 		Password = password;
 		ListenedGenres = new HashSet <String>();
 		MyFavorites = new HashSet <String>();
+	}
+
+
+	public HashSet<String> getMyFavorites() {
+		return MyFavorites;
+	}
+
+
+	public void setMyFavorites(HashSet<String> myFavorites) {
+		MyFavorites = myFavorites;
+	}
+
+
+	public boolean isLoggedIn() {
+		return loggedIn;
+	}
+
+
+	public void setLoggedIn(boolean loggedIn) {
+		this.loggedIn = loggedIn;
 	}
 
 
