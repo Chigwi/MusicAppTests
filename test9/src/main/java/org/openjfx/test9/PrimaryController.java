@@ -44,8 +44,6 @@ public class PrimaryController {
     private SeralizationControler J = new SeralizationControler();
 	//users home directory
 	private final String home = System.getProperty("user.home");
-	//app directory for users
-	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
 	//path towards the users binary files
 	private final String path = home + "\\GenreDive\\Users\\";	
 	
@@ -62,9 +60,9 @@ public class PrimaryController {
 		//checks if its correct
 		if(checkPass(userName,password)) {
 			//turns newly logged in user into the last logged in user
-			Usuario last = J.deserializarUser(path, "Last");
+			Usuario last = J.deserializarUser(path, userName);
 			J.serializarUser(last, path, "Last");
-			System.out.println(J.deserializarUser(path, "Last").toString());
+			System.out.println("pene "+J.deserializarUser(path, "Last").toString());
 			//checks if user wants to be kept logged in
 			if(isLoggedIn.isSelected()) {
 				//if the user wants to be kept logged in it switches the logged in valule to true
