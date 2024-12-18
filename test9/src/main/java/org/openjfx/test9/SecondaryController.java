@@ -47,7 +47,7 @@ public class SecondaryController {
     	 * utilizar un anchor pane en la pantalla a mostrar
     	 * y serializar por fuera del archivo JAR
     	 */
-    	outDatos.setText(J.deserializarUser(path, name).toString());
+    	//outDatos.setText(J.deserializarUser(path, name).toString());
     	 String genre = "dariacore"; // Replace with the selected genre
 
     	    String url = "https://open.spotify.com/search/" + genre;
