@@ -1,3 +1,7 @@
+/**
+ * @author Allyson
+ * @since 17/12/2024
+ */
 package org.openjfx.test9.model;
 
 import java.io.File;
@@ -5,7 +9,9 @@ import java.util.Arrays;
 import org.openjfx.test9.services.SeralizationControler;
 
 public class GenreList {
-	
+	/**
+	 * music genres list as a String
+	 */
 	private final static  String baseList ="Alternative\r\n"
             + "Art Punk\r\n"
             + "Alternative Rock\r\n"
@@ -986,7 +992,9 @@ public class GenreList {
             + "Zydeco\r\n"
             + "\r\n"
             + "";
-	
+	/**
+	 * music genres list turned into an array
+	 */
 	private final static String [] Genres = baseList.split("\r");
 	
 	private final static String home = System.getProperty("user.home");
@@ -997,7 +1005,7 @@ public class GenreList {
 	
 	private final static String name = "Music Genres List";
 	
-	private static final SeralizationControler J = new SeralizationControler ();
+	private final static SeralizationControler J = new SeralizationControler ();
 	
 	public String getBaseList() {
 		return baseList;
@@ -1011,7 +1019,9 @@ public class GenreList {
 	public String toString() {
 		return "GenreList [Genres=" + Arrays.toString(Genres) + "]";
 	}
-	
+	/**
+	 * method in charge of creating the directory holding the music genres list
+	 */
 	public static void createList () {
 		carpeta.mkdirs();
 		J.serializarStringA(Genres, path, name);
