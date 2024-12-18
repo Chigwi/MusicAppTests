@@ -7,6 +7,7 @@ package org.openjfx.test9;
 import java.io.File;
 import java.io.IOException;
 
+import org.openjfx.test9.model.GenreList;
 import org.openjfx.test9.model.Usuario;
 import org.openjfx.test9.services.SeralizationControler;
 
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+
 
 
 public class App extends Application {
@@ -38,6 +40,7 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			GenreList.createList();
 			carpeta.mkdirs();
 			System.out.println(getClass().getName());
 			//gets the last user that was logged in
