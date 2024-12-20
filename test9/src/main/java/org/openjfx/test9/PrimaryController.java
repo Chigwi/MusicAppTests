@@ -74,7 +74,7 @@ public class PrimaryController {
 				//if not switches it to false
 				last.setLoggedIn(false);
 				J.serializarUser(last, path, "Last");
-				App.setRoot("MostrarDatos");
+				App.setRoot("MainScreen");
 			}
 			
 		}

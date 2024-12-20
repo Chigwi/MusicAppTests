@@ -50,7 +50,7 @@ public class App extends Application {
 			//checks if said user logged out before closing the app
 			if(lastUser!=null && lastUser.isLoggedIn()) {
 				//if its logged in lets the user directly into the app functionallity
-				AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/MostrarDatos.fxml"));
+				AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/MainScreen.fxml"));
 				scene = new Scene(root);
 				String css = this.getClass().getResource("application.css").toExternalForm();
 				scene.getStylesheets().add(css);
