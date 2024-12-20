@@ -68,7 +68,7 @@ public class PrimaryController {
 				//if the user wants to be kept logged in it switches the logged in valule to true
 				last.setLoggedIn(true);
 				J.serializarUser(last, path, "Last");
-				App.setRoot("MostrarDatos");
+				App.setRoot("MainScreen");
 			}
 			else {
 				//if not switches it to false
