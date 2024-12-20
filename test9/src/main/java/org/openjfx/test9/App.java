@@ -46,7 +46,7 @@ public class App extends Application {
 			//gets the last user that was logged in
 			lastUser = J.deserializarUser(path, name);
 			//System.out.println(lastUser.isLoggedIn());
-			//lastUser.setLoggedIn(false);
+			lastUser.setLoggedIn(false);
 			//checks if said user logged out before closing the app
 			if(lastUser!=null && lastUser.isLoggedIn()) {
 				//if its logged in lets the user directly into the app functionallity
@@ -59,7 +59,7 @@ public class App extends Application {
 			}
 			else {
 				//if not takes the user into the log in screen
-				AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/PantallaDeIngreso.fxml"));
+				AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/LogInScreen.fxml"));
 				scene = new Scene(root);
 				String css = this.getClass().getResource("application.css").toExternalForm();
 				scene.getStylesheets().add(css);

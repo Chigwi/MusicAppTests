@@ -59,7 +59,7 @@ public class SignUpController implements Initializable {
     			String name = newUser.getUsername();
     			J.serializarUser(newUser, path, name);
     			outError.setText("User created succesfully!");
-    			App.setRoot("PantallaDeIngreso");
+    			App.setRoot("LogInScreen");
     		}
     	}
     	else {
