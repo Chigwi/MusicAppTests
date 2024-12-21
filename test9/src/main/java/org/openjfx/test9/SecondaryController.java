@@ -82,11 +82,7 @@ public class SecondaryController implements Initializable{
 		try {
 			Image image = new Image(getClass().getClassLoader().getResourceAsStream("Aespa1.jpg"));
 			display.setImage(image);
-			//outDatos.setText(Arrays.toString(J.deserializarListA(path)));
-			String [] list = J.deserializarListA(path);
-			for (int i = 0; i < list.length; i++) {
-				System.out.println(list[i]);
-			}
+			outDatos.setText(Arrays.toString(J.deserializarListA(path)));
 		}catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
     		al.setTitle("Info");

@@ -1001,15 +1001,13 @@ public class GenreList {
 	 */
 	private final static String [] Genres = baseList.split("\r");
 	
-	private final static String home = System.getProperty("user.home");
-	
-	private final static File carpeta = new File(home + "\\GenreDive\\\\List");
-	
-	private final static String path = home + "\\GenreDive\\List\\";
+	private final static String path ="src/main/resources/genreList/MusicGenresList.bin";
 	
 	private final static String name = "Music Genres List";
 	
 	private final static SeralizationControler J = new SeralizationControler ();
+	
+	private final static HashMap<String,Usuario> UserData = new HashMap<>();
 	
 	public String getBaseList() {
 		return baseList;
@@ -1027,6 +1025,9 @@ public class GenreList {
 	 * method in charge of creating the directory holding the music genres list
 	 */
 	public static void createList () {
+		J.serializarStringA(Genres, path);
+	}
+	public static void createUserData(){
 		
 		Usuario user1 = new Usuario ("Allie","Chigwi23");
 		
@@ -1034,44 +1035,19 @@ public class GenreList {
 		
 		Usuario user3 = new Usuario ("Cothu","Chotu");
 		
-		carpeta.mkdirs();
-		
-		J.serializarStringA(Genres, path, name);
-		
-		/*HashMap<String,Usuario> UserData = new HashMap<>();
-		
-		user1.setLast(true);
-		user2.setLast(true);
-		user3.setLast(false);
-		Usuario lastUser = user3;
+		Usuario last = user1;
 		
 		UserData.put("Allie", user1);
+		
 		UserData.put("Salo", user2);
+		
 		UserData.put("Cothu", user3);
-		UserData.put("last", lastUser);
 		
-		last(UserData);
-		System.out.println("very last user " + UserData.get("last"));
-		J.serializarUser(UserData,"src/main/resources/users/userData.bin");*/
-	}
-	
-	public static String last(HashMap <String,Usuario> userData) {
+		UserData.put("last", last);
 		
-	for (Map.Entry<String, Usuario> entry : userData.entrySet()) {
-		String key = entry.getKey();
-		Usuario val = entry.getValue();
-		if(val.isLast()) {
-			System.out.println(val.toString());
-			userData.replace("last", val);
-			System.out.println(val.toString());
-		}
-		else if(key.equals("last")) {
-			System.out.println("last user " + val.toString());
-		}
+		System.out.println(UserData.get("last"));
 		
-	}
-		
-		return "";
+		J.serializarUser(UserData,"src/main/resources/users/userData.bin");
 	}
 
 }

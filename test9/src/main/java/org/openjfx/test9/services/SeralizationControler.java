@@ -115,10 +115,10 @@ public class SeralizationControler {
 		return a;
 	 	}
 	 
-	 public void serializarStringA(String [] user, String path, String name) {
+	 public void serializarStringA(String [] user, String path) {
 	    	try {
 	    		System.out.println(path);
-				FileOutputStream fos = new FileOutputStream(path + name);
+				FileOutputStream fos = new FileOutputStream(path);
 				ObjectOutputStream oos = new ObjectOutputStream (fos);
 				oos.writeObject(user);
 				oos.close();

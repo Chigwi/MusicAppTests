@@ -17,6 +17,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
 
@@ -33,10 +35,33 @@ public class App extends Application {
 	
 	private final String name = "last";
 	
+	private final static HashMap<String,Usuario> UserData = new HashMap<>();
+	
 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			if(J.deserializarUser(path)==null){
+				Usuario user1 = new Usuario ("Allie","Chigwi23");
+				
+				Usuario user2 = new Usuario ("Salo","Salo123");
+				
+				Usuario user3 = new Usuario ("Cothu","Chotu");
+				
+				Usuario last = user1;
+				
+				UserData.put("Allie", user1);
+				
+				UserData.put("Salo", user2);
+				
+				UserData.put("Cothu", user3);
+				
+				UserData.put("last", last);
+				
+				System.out.println(UserData.get("last"));
+				
+				J.serializarUser(UserData,"src/main/resources/users/userData.bin");
+			}else {
 			GenreList.createList();
 			System.out.println(getClass().getName());
 			//gets the last user that was logged in
@@ -64,8 +89,13 @@ public class App extends Application {
 				primaryStage.show();
 			}
 			
+			}
 		} catch(Exception e) {
-			e.printStackTrace();
+			Alert al = new Alert(AlertType.INFORMATION);
+    		al.setTitle("Info");
+    		al.setContentText(e.toString());
+    		System.out.println(e.toString());
+    		al.showAndWait();
 		}
 	}
 	/**

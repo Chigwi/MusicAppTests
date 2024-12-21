@@ -55,6 +55,7 @@ public class PrimaryController {
 	@FXML
     void switchToSecondary(ActionEvent event) throws IOException {
 		HashMap <String,Usuario> userData = J.deserializarUser(path);
+		System.out.println(userData.get("last"));
 		//gets the user input for username and password
 		String userName = InUser.getText();
 		String password = InPassword.getText();
@@ -72,6 +73,7 @@ public class PrimaryController {
 				J.serializarUser(userData, path);
 				System.out.println(last);
 				App.setRoot("MainScreen");
+				System.out.println(J.deserializarUser(path));
 			}
 			else {
 				//if not switches it to false
