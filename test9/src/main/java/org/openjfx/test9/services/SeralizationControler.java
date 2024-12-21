@@ -35,7 +35,7 @@ public class SeralizationControler {
 			}
 			
 	    }
-		public void serializarUser(HashMap <Usuario,String> user, String path, String name) {
+		public void serializarUser(HashMap <String,Usuario> user, String path, String name) {
 	    	try {
 	    		System.out.println(path);
 				FileOutputStream fos = new FileOutputStream(path + name);
