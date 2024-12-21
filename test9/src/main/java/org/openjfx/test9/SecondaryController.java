@@ -10,6 +10,8 @@ import javafx.fxml.Initializable;
 import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -35,6 +37,8 @@ public class SecondaryController implements Initializable{
     @FXML
     private Button primaryButton;
 
+    @FXML
+    private ImageView display;
     
     private SeralizationControler J = new SeralizationControler();
 
@@ -46,7 +50,6 @@ public class SecondaryController implements Initializable{
 	
 	private String name = "Ejemplo";
 	
-
 	
 	
     @FXML
@@ -75,7 +78,17 @@ public class SecondaryController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//display.setImage(image);
+		try {
+			Image image = new Image(getClass().getResourceAsStream("/images/Aespa1.jpg"));
+			display.setImage(image);
+		}catch(Exception e) {
+			Alert al = new Alert(AlertType.INFORMATION);
+    		al.setTitle("Info");
+    		al.setContentText(e.toString());
+    		System.out.println(e.toString());
+    		al.showAndWait();
+		}
+		
 		
 	}
 
