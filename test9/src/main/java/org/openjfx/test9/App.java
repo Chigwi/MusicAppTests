@@ -6,6 +6,7 @@ package org.openjfx.test9;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import org.openjfx.test9.model.GenreList;
 import org.openjfx.test9.model.Usuario;
@@ -32,7 +33,7 @@ public class App extends Application {
 	
 	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
 	
-	private final String path = home + "\\GenreDive\\Users\\";	
+	private final String path = "src/main/resources/users/userData.bin";	
 	
 	private final String name = "Last";
 	
@@ -44,8 +45,9 @@ public class App extends Application {
 			carpeta.mkdirs();
 			System.out.println(getClass().getName());
 			//gets the last user that was logged in
-			lastUser = J.deserializarUser(path, name);
-			//System.out.println(lastUser.isLoggedIn());
+			HashMap <String,Usuario> userData = J.deserializarUser(path); 
+			lastUser = userData.get("last");
+			System.out.println(lastUser);
 			//lastUser.setLoggedIn(false);
 			//checks if said user logged out before closing the app
 			if(lastUser!=null && lastUser.isLoggedIn()) {

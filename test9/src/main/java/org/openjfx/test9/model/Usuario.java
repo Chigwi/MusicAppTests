@@ -15,11 +15,22 @@ public class Usuario implements Serializable {
 	
 	private HashSet <String> ListenedGenres,MyFavorites;
 	
-	private boolean loggedIn;
+	private boolean loggedIn,last;
 	
 	
 	
 	
+	
+	public boolean isLast() {
+		return last;
+	}
+
+
+	public void setLast(boolean last) {
+		this.last = last;
+	}
+
+
 	public Usuario(String username, String password) {
 		super();
 		Username = username;

@@ -35,10 +35,10 @@ public class SeralizationControler {
 			}
 			
 	    }
-		public void serializarUser(HashMap <String,Usuario> user, String path, String name) {
+		public void serializarUser(HashMap <String,Usuario> user,String name) {
 	    	try {
-	    		System.out.println(path);
-				FileOutputStream fos = new FileOutputStream(path + name);
+	    		System.out.println(name);
+				FileOutputStream fos = new FileOutputStream(name);
 				ObjectOutputStream oos = new ObjectOutputStream (fos);
 				oos.writeObject(user);
 				oos.close();
@@ -65,12 +65,12 @@ public class SeralizationControler {
 			}
 		return a;
 		}
-	 public Usuario deserializarUser(String name) {
-		 	Usuario a = null;
+	 public HashMap <String,Usuario> deserializarUser(String name) {
+		 	HashMap<String,Usuario>a = null;
 			try {	
 			FileInputStream fis = new FileInputStream (name);
 			ObjectInputStream ois = new ObjectInputStream (fis);
-			a = (Usuario) ois.readObject();
+			a = (HashMap<String,Usuario>) ois.readObject();
 			
 			ois.close();
 			fis.close();

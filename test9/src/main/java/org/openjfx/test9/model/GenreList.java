@@ -6,6 +6,10 @@ package org.openjfx.test9.model;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 import org.openjfx.test9.services.SeralizationControler;
 
 public class GenreList {
@@ -1001,7 +1005,7 @@ public class GenreList {
 	
 	private final static File carpeta = new File(home + "\\GenreDive\\\\List");
 	
-	private final static String path = home + "\\GenreDive\\List\\";	
+	private final static String path = home + "\\GenreDive\\List\\";
 	
 	private final static String name = "Music Genres List";
 	
@@ -1023,8 +1027,51 @@ public class GenreList {
 	 * method in charge of creating the directory holding the music genres list
 	 */
 	public static void createList () {
+		
+		Usuario user1 = new Usuario ("Allie","Chigwi23");
+		
+		Usuario user2 = new Usuario ("Salo","Salo123");
+		
+		Usuario user3 = new Usuario ("Cothu","Chotu");
+		
 		carpeta.mkdirs();
+		
 		J.serializarStringA(Genres, path, name);
+		
+		HashMap<String,Usuario> UserData = new HashMap<>();
+		
+		user1.setLast(true);
+		user2.setLast(true);
+		user3.setLast(false);
+		Usuario lastUser = user3;
+		
+		UserData.put("Allie", user1);
+		UserData.put("Salo", user2);
+		UserData.put("Cothu", user3);
+		UserData.put("last", lastUser);
+		
+		last(UserData);
+		System.out.println("very last user " + UserData.get("last"));
+		J.serializarUser(UserData,"src/main/resources/users/userData.bin");
+	}
+	
+	public static String last(HashMap <String,Usuario> userData) {
+		
+	for (Map.Entry<String, Usuario> entry : userData.entrySet()) {
+		String key = entry.getKey();
+		Usuario val = entry.getValue();
+		if(val.isLast()) {
+			System.out.println(val.toString());
+			userData.replace("last", val);
+			System.out.println(val.toString());
+		}
+		else if(key.equals("last")) {
+			System.out.println("last user " + val.toString());
+		}
+		
+	}
+		
+		return "";
 	}
 
 }
