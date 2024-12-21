@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.HashMap;
+
 import org.openjfx.test9.model.Usuario;
 
 
@@ -20,6 +22,20 @@ public class SeralizationControler {
 	
 
 		public void serializarUser(Usuario user, String path, String name) {
+	    	try {
+	    		System.out.println(path);
+				FileOutputStream fos = new FileOutputStream(path + name);
+				ObjectOutputStream oos = new ObjectOutputStream (fos);
+				oos.writeObject(user);
+				oos.close();
+				fos.close();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+	    }
+		public void serializarUser(HashMap <Usuario,String> user, String path, String name) {
 	    	try {
 	    		System.out.println(path);
 				FileOutputStream fos = new FileOutputStream(path + name);
