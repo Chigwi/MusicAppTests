@@ -5,20 +5,26 @@ import java.io.IOException;
 import org.openjfx.test9.services.SeralizationControler;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+
 import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.awt.Desktop;
 
 import java.net.URI;
 
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SecondaryController {
+public class SecondaryController implements Initializable{
 
     @FXML
     private Label OutError;
@@ -29,6 +35,7 @@ public class SecondaryController {
     @FXML
     private Button primaryButton;
 
+    
     private SeralizationControler J = new SeralizationControler();
 
 	String home = System.getProperty("user.home");
@@ -38,6 +45,8 @@ public class SecondaryController {
 	private String path = home + "\\SerialTests\\Usuarios\\";	
 	
 	private String name = "Ejemplo";
+	
+
 	
 	
     @FXML
@@ -62,5 +71,12 @@ public class SecondaryController {
 
     	    }
     }
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		//display.setImage(image);
+		
+	}
 
 }

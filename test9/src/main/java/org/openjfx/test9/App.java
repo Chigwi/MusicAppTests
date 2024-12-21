@@ -46,7 +46,7 @@ public class App extends Application {
 			//gets the last user that was logged in
 			lastUser = J.deserializarUser(path, name);
 			//System.out.println(lastUser.isLoggedIn());
-			lastUser.setLoggedIn(false);
+			//lastUser.setLoggedIn(false);
 			//checks if said user logged out before closing the app
 			if(lastUser!=null && lastUser.isLoggedIn()) {
 				//if its logged in lets the user directly into the app functionallity
