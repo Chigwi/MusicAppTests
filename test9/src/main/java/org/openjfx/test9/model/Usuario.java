@@ -103,7 +103,7 @@ public class Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "User [Username=" + Username + ", ListenedGenres=" + ListenedGenres.size()+ ", MyFavorites=" + MyFavorites
-				+ "]";
+				+ isLoggedIn()+ "]";
 	}
 
 

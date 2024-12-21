@@ -9,6 +9,8 @@ package org.openjfx.test9;
 import org.openjfx.test9.model.Usuario;
 import org.openjfx.test9.services.SeralizationControler;
 import java.io.IOException;
+import java.util.HashMap;
+
 import javafx.fxml.FXML;
 import java.io.File;
 import javafx.event.ActionEvent;
@@ -45,7 +47,7 @@ public class PrimaryController {
 	//users home directory
 	private final String home = System.getProperty("user.home");
 	//path towards the users binary files
-	private final String path = home + "\\GenreDive\\Users\\";	
+	private final String path = "src/main/resources/users/userData.bin";	
 	
 	/**
 	 * Method in charge of logging the user in
@@ -54,26 +56,30 @@ public class PrimaryController {
 	 */
 	@FXML
     void switchToSecondary(ActionEvent event) throws IOException {
+		HashMap <String,Usuario> userData = J.deserializarUser(path);
 		//gets the user input for username and password
 		String userName = InUser.getText();
 		String password = InPassword.getText();
 		//checks if its correct
 		if(checkPass(userName,password)) {
 			//turns newly logged in user into the last logged in user
-			Usuario last = J.deserializarUser(path, userName);
-			J.serializarUser(last, path, "Last");
-			System.out.println("pene "+J.deserializarUser(path, "Last").toString());
+			Usuario last = userData.get(userName);
+			userData.replace("last", last);
+			System.out.println("pene "+userData.get("last"));
 			//checks if user wants to be kept logged in
 			if(isLoggedIn.isSelected()) {
 				//if the user wants to be kept logged in it switches the logged in valule to true
 				last.setLoggedIn(true);
-				J.serializarUser(last, path, "Last");
+				userData.replace("Last", last);
+				J.serializarUser(userData, path);
+				System.out.println(last);
 				App.setRoot("MainScreen");
 			}
 			else {
 				//if not switches it to false
 				last.setLoggedIn(false);
-				J.serializarUser(last, path, "Last");
+				userData.replace("Last", last);
+				J.serializarUser(userData, path);
 				App.setRoot("MainScreen");
 			}
 			
@@ -110,15 +116,21 @@ public class PrimaryController {
      * @return
      */
     private boolean checkPass (String userName, String Password) {
-    	try {//checks if the password given is the same as the one registered for the user
-    		if(J.deserializarUser(path, userName).getUsername().equals(userName)
-    			&& J.deserializarUser(path, userName).getPassword().equals(Password)) {
-    			return true;
+    	HashMap <String,Usuario> userData = J.deserializarUser(path);
+    	try {
+    		if(userData.get(userName)!=null) {
+    			if(userData.get(userName).getPassword().equals(Password)) {
+    				return true;
+    			}else {
+    				return false;
+    			}
+    		}else {
+    			OutError.setText("User doesn't exist");
+        		OutError.setVisible(true);
     		}
-    	}catch(Exception e) {//exception in case the user doesnt exist
-    		OutError.setText("User doesn't exist");
-    		OutError.setVisible(true);
-    	}//in case the username and password are incorrect it returns false
+    	}catch(Exception e) {
+    		
+    	}
     	return false;
     }
 }

@@ -53,11 +53,12 @@ public class SignUpController implements Initializable {
 	 */
     @FXML
     void SignIn(ActionEvent event) throws Exception{
+    	
     	if(validUsername(inUsername.getText())) {
     		if(validPassword(inPassword.getText())) {
     			Usuario newUser = new Usuario (inUsername.getText(),inConfirm.getText());
     			String name = newUser.getUsername();
-    			J.serializarUser(newUser, path, name);
+    			
     			outError.setText("User created succesfully!");
     			App.setRoot("LogInScreen");
     		}

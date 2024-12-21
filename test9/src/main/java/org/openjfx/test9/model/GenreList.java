@@ -1038,7 +1038,7 @@ public class GenreList {
 		
 		J.serializarStringA(Genres, path, name);
 		
-		HashMap<String,Usuario> UserData = new HashMap<>();
+		/*HashMap<String,Usuario> UserData = new HashMap<>();
 		
 		user1.setLast(true);
 		user2.setLast(true);
@@ -1052,7 +1052,7 @@ public class GenreList {
 		
 		last(UserData);
 		System.out.println("very last user " + UserData.get("last"));
-		J.serializarUser(UserData,"src/main/resources/users/userData.bin");
+		J.serializarUser(UserData,"src/main/resources/users/userData.bin");*/
 	}
 	
 	public static String last(HashMap <String,Usuario> userData) {
