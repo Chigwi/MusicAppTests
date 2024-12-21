@@ -98,10 +98,10 @@ public class SeralizationControler {
 			
 	    }
 	 
-	 public String deserializarList(String path, String name) {
+	 public String deserializarList(String path) {
 		 	String a = null;
 			try {	
-			FileInputStream fis = new FileInputStream (path + name);
+			FileInputStream fis = new FileInputStream (path);
 			ObjectInputStream ois = new ObjectInputStream (fis);
 			a = (String) ois.readObject();
 			
@@ -130,10 +130,10 @@ public class SeralizationControler {
 			
 	    }
 	 
-	 public String [] deserializarListA (String path, String name) {
+	 public String [] deserializarListA (String path) {
 		 	String [] a = null;
 			try {	
-			FileInputStream fis = new FileInputStream (path + name);
+			FileInputStream fis = new FileInputStream (path);
 			ObjectInputStream ois = new ObjectInputStream (fis);
 			a = (String []) ois.readObject();
 			

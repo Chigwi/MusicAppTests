@@ -6,7 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="**|images/|images/|users/|users/" kind="src" output="target/classes" path="src/main/resources">
+	<classpathentry excluding="**|images/|images/|users/|users/|genreList/|genreList/" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="optional" value="true"/>
@@ -14,6 +14,7 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src/main/resources/images"/>
 	<classpathentry kind="src" path="src/main/resources/users"/>
+	<classpathentry kind="src" path="src/main/resources/genreList"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
 		<attributes>
 			<attribute name="module" value="true"/>

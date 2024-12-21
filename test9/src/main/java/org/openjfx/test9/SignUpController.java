@@ -6,6 +6,7 @@ package org.openjfx.test9;
 
 import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import org.openjfx.test9.model.Usuario;
@@ -38,12 +39,8 @@ public class SignUpController implements Initializable {
     private final String regex = "^(?=.*[A-Z])(?=.*\\d).{8,}$";
     //object in charge of serialization
     private final SeralizationControler J = new SeralizationControler();
-    //users home directory
-    private final String home = System.getProperty("user.home");
     //path towards the users binary files	
-	private final String path = home + "\\GenreDive\\Users\\";
-	//users directory file
-	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
+    private final String path = "src/main/resources/users/userData.bin";
     
     
 	/**
@@ -53,12 +50,13 @@ public class SignUpController implements Initializable {
 	 */
     @FXML
     void SignIn(ActionEvent event) throws Exception{
-    	
+    	HashMap <String,Usuario> userData = J.deserializarUser(path);
     	if(validUsername(inUsername.getText())) {
     		if(validPassword(inPassword.getText())) {
     			Usuario newUser = new Usuario (inUsername.getText(),inConfirm.getText());
     			String name = newUser.getUsername();
-    			
+    			userData.put(name, newUser);
+    			J.serializarUser(userData, path);
     			outError.setText("User created succesfully!");
     			App.setRoot("LogInScreen");
     		}
@@ -99,8 +97,8 @@ public class SignUpController implements Initializable {
      * @return
      */
     private boolean validUsername(String userName) {
-    	Usuario user = J.deserializarUser(path, inUsername.getText());
-    	if(user==null) {
+    	HashMap <String,Usuario> userData = J.deserializarUser(path);
+    	if(userData.get(userName)== null) {
     		return true;
     	}
     	return false;

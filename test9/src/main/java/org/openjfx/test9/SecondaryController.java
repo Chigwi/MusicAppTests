@@ -24,6 +24,7 @@ import java.net.URI;
 
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class SecondaryController implements Initializable{
@@ -46,7 +47,7 @@ public class SecondaryController implements Initializable{
 	
 	File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
 	
-	private String path = home + "\\SerialTests\\Usuarios\\";	
+	private String path ="src/main/resources/genreList/MusicGenresList.bin";
 	
 	private String name = "Ejemplo";
 	
@@ -81,6 +82,11 @@ public class SecondaryController implements Initializable{
 		try {
 			Image image = new Image(getClass().getClassLoader().getResourceAsStream("Aespa1.jpg"));
 			display.setImage(image);
+			//outDatos.setText(Arrays.toString(J.deserializarListA(path)));
+			String [] list = J.deserializarListA(path);
+			for (int i = 0; i < list.length; i++) {
+				System.out.println(list[i]);
+			}
 		}catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
     		al.setTitle("Info");

@@ -29,24 +29,19 @@ public class App extends Application {
 	
 	private static Usuario lastUser;
 	
-	private final String home = System.getProperty("user.home");
-	
-	private final File carpeta = new File(home + "\\GenreDive\\\\Users");
-	
 	private final String path = "src/main/resources/users/userData.bin";	
 	
-	private final String name = "Last";
+	private final String name = "last";
 	
 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			GenreList.createList();
-			carpeta.mkdirs();
 			System.out.println(getClass().getName());
 			//gets the last user that was logged in
 			HashMap <String,Usuario> userData = J.deserializarUser(path); 
-			lastUser = userData.get("last");
+			lastUser = userData.get(name);
 			System.out.println(lastUser);
 			//lastUser.setLoggedIn(false);
 			//checks if said user logged out before closing the app

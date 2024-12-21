@@ -44,8 +44,6 @@ public class PrimaryController {
     private CheckBox isLoggedIn;
     //object in charge of serialization
     private SeralizationControler J = new SeralizationControler();
-	//users home directory
-	private final String home = System.getProperty("user.home");
 	//path towards the users binary files
 	private final String path = "src/main/resources/users/userData.bin";	
 	
