@@ -49,6 +49,23 @@ public class SeralizationControler {
 			}
 		return a;
 		}
+	 public Usuario deserializarUser(String name) {
+		 	Usuario a = null;
+			try {	
+			FileInputStream fis = new FileInputStream (name);
+			ObjectInputStream ois = new ObjectInputStream (fis);
+			a = (Usuario) ois.readObject();
+			
+			ois.close();
+			fis.close();
+			
+			} catch (IOException | ClassNotFoundException e) {
+				//e.printStackTrace();
+				return null;
+			}
+		return a;
+	 }
+		
 	 
 	 public void serializarString(String user, String path, String name) {
 	    	try {

@@ -79,7 +79,7 @@ public class SecondaryController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			Image image = new Image(getClass().getResourceAsStream("/images/Aespa1.jpg"));
+			Image image = new Image(getClass().getClassLoader().getResourceAsStream("Aespa1.jpg"));
 			display.setImage(image);
 		}catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
