@@ -69,7 +69,6 @@ public class PrimaryController {
 			//turns newly logged in user into the last logged in user
 			Usuario last = userData.get(userName);
 			userData.replace("last", last);
-			System.out.println("pene "+userData.get("last"));
 			//checks if user wants to be kept logged in
 			if(isLoggedIn.isSelected()) {
 				//if the user wants to be kept logged in it switches the logged in valule to true
