@@ -120,7 +120,7 @@ public class SecondaryController implements Initializable{
 			 transition.setToX(-sidebar.getWidth()); // Slide out
 			 this.isVisible = false;
 		 }else {
-			 transition.setToX(200); // Slide in
+			 transition.setToX(0); // Slide in
 			 this.isVisible = true;
 		 }
 		 transition.play();
