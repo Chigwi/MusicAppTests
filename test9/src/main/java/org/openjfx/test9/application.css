@@ -100,3 +100,58 @@
     -fx-text-alignment: center;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0.7, 0, 2);
 }
+
+/* Sidebar styling */
+.vbox {
+    -fx-background-color: linear-gradient(to bottom, #f4f4f8, #e6e6f0)!important; /* Lighter gradient */
+    -fx-padding: 15px; /* Consistent padding */
+    -fx-spacing: 10px; /* Spacing between elements */
+    -fx-border-color: #5a7d9e; /* Subtle border for definition */
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px; /* Rounded corners */
+    -fx-background-radius: 10px;
+}
+
+/* Sidebar buttons */
+.vbox .button {
+    -fx-background-color: #6a4c93; /* Keep consistent button color */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+    -fx-padding: 10px 20px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.5, 0, 2);
+}
+
+.vbox .button:hover {
+    -fx-background-color: #82489b;
+}
+
+.vbox .button:pressed {
+    -fx-background-color: #583c6e;
+}
+
+/* Sidebar labels */
+.vbox .label {
+    -fx-text-fill: #325a7c;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Sidebar text fields */
+.vbox .text-field, .VBox .password-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #5a7d9e;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 7px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Helvetica", Arial, sans-serif;
+    -fx-text-fill: #3a3a4e;
+}
+
+.vbox .text-field:focused, .vbox .password-field:focused {
+    -fx-border-color: linear-gradient(to right, #5a7d9e, #325a7c);
+    -fx-background-color: #f4f4f4;
+}

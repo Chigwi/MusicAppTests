@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.openjfx.test9.services.SeralizationControler;
 
-import javafx.fxml.FXML;
+
 import javafx.fxml.Initializable;
 
 import java.io.File;
@@ -17,6 +17,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.util.Duration;
+import javafx.animation.Transition;
+import javafx.animation.TranslateTransition;
 
 import java.awt.Desktop;
 
@@ -28,6 +33,12 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class SecondaryController implements Initializable{
+	
+    @FXML
+    private ImageView activateSideBar;
+    
+    @FXML
+    private VBox sidebar;
 
     @FXML
     private Label OutError;
@@ -53,6 +64,8 @@ public class SecondaryController implements Initializable{
 	 private final File folder = new File(home + "\\GenreDive\\\\GenreList");
 	
 	private String name = "Ejemplo";
+	
+	private boolean isVisible = false;
 	
 	
 	
@@ -84,8 +97,11 @@ public class SecondaryController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			Image image = new Image(getClass().getClassLoader().getResourceAsStream("Aespa1.jpg"));
+			Image sideBar1 = new Image(getClass().getClassLoader().getResourceAsStream("sidebar-icon-1.png"));
 			display.setImage(image);
-			outDatos.setText(Arrays.toString(J.deserializarListA(path)));
+			activateSideBar.setImage(sideBar1);
+			//outDatos.setText(Arrays.toString(J.deserializarListA(path)));
+			outDatos.setVisible(false);
 		}catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
     		al.setTitle("Info");
@@ -96,5 +112,18 @@ public class SecondaryController implements Initializable{
 		
 		
 	}
+	
+	 @FXML
+	    void toggleSidebar(MouseEvent event) {
+		 TranslateTransition transition = new TranslateTransition(Duration.millis(300), sidebar);
+		 if(isVisible) {
+			 transition.setToX(-sidebar.getWidth()); // Slide out
+			 this.isVisible = false;
+		 }else {
+			 transition.setToX(200); // Slide in
+			 this.isVisible = true;
+		 }
+		 transition.play();
+	    }
 
 }
