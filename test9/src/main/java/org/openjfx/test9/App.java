@@ -114,7 +114,7 @@ public class App extends Application {
 			HashMap <String,Usuario> userData = J.deserializarUser(path);{ 
 			lastUser = userData.get(name);
 			System.out.println(lastUser);
-			//lastUser.setLoggedIn(false);
+			lastUser.setLoggedIn(false);
 			//checks if said user logged out before closing the app
 			if(lastUser!=null && lastUser.isLoggedIn()) {
 				//if its logged in lets the user directly into the app functionallity

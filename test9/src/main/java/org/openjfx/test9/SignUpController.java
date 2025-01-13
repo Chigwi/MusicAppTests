@@ -39,8 +39,12 @@ public class SignUpController implements Initializable {
     private final String regex = "^(?=.*[A-Z])(?=.*\\d).{8,}$";
     //object in charge of serialization
     private final SeralizationControler J = new SeralizationControler();
-    //path towards the users binary files	
-    private final String path = "src/main/resources/users/userData.bin";
+  //users home directory
+  	private final String home = System.getProperty("user.home");
+  	//path towards the users binary files
+  	private final String path = home + "\\GenreDive\\Users\\userData.bin";
+  	
+  	private final File folder = new File(home + "\\GenreDive\\\\Users");
     
     
 	/**
