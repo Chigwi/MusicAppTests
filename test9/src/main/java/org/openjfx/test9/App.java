@@ -29,19 +29,25 @@ public class App extends Application {
 	
 	private SeralizationControler J = new SeralizationControler();
 	
-	private static Usuario lastUser;
+	//users home directory
+	private final String home = System.getProperty("user.home");
+	//path towards the users binary files
+	private final String path = home + "\\GenreDive\\Users\\userData.bin";
 	
-	private final String path = "src/main/resources/users/userData.bin";	
+	private final File folder = new File(home + "\\GenreDive\\\\Users");
+	
+	private static Usuario lastUser;
 	
 	private final String name = "last";
 	
 	private final static HashMap<String,Usuario> UserData = new HashMap<>();
 	
+	
+	
 
 	@Override
 	public void start(Stage primaryStage) {
-		try {
-			if(J.deserializarUser(path)==null){
+		if(J.deserializarUser(path)==null){
 				Usuario user1 = new Usuario ("Allie","Chigwi23");
 				
 				Usuario user2 = new Usuario ("Salo","Salo123");
@@ -58,14 +64,54 @@ public class App extends Application {
 				
 				UserData.put("last", last);
 				
-				System.out.println(UserData.get("last"));
+				J.serializarUser(UserData, path);
+				System.out.println(UserData.get("last")+ "no guardó");
 				
 				J.serializarUser(UserData,"src/main/resources/users/userData.bin");
+				try {
+					folder.mkdirs();
+					GenreList.createList();
+					System.out.println(getClass().getName());
+					//gets the last user that was logged in
+					HashMap <String,Usuario> userData = J.deserializarUser(path);{ 
+					lastUser = UserData.get(name);
+					System.out.println(lastUser);
+					//lastUser.setLoggedIn(false);
+					//checks if said user logged out before closing the app
+					if(lastUser!=null && lastUser.isLoggedIn()) {
+						//if its logged in lets the user directly into the app functionallity
+						AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/MainScreen.fxml"));
+						scene = new Scene(root);
+						String css = this.getClass().getResource("application.css").toExternalForm();
+						scene.getStylesheets().add(css);
+						primaryStage.setScene(scene);
+						primaryStage.show();
+					}
+					else {
+						//if not takes the user into the log in screen
+						AnchorPane root  = (AnchorPane) FXMLLoader.load(getClass().getResource("/org/openjfx/test9/LogInScreen.fxml"));
+						scene = new Scene(root);
+						String css = this.getClass().getResource("application.css").toExternalForm();
+						scene.getStylesheets().add(css);
+						primaryStage.setScene(scene);
+						primaryStage.show();
+					}
+					}
+				} catch(Exception e) {
+					Alert al = new Alert(AlertType.INFORMATION);
+		    		al.setTitle("Info");
+		    		al.setContentText(e.toString());
+		    		System.out.println(e.toString());
+		    		e.printStackTrace();
+		    		al.showAndWait();
+				}
 			}else {
+		try {
+			folder.mkdirs();
 			GenreList.createList();
 			System.out.println(getClass().getName());
 			//gets the last user that was logged in
-			HashMap <String,Usuario> userData = J.deserializarUser(path); 
+			HashMap <String,Usuario> userData = J.deserializarUser(path);{ 
 			lastUser = userData.get(name);
 			System.out.println(lastUser);
 			//lastUser.setLoggedIn(false);
@@ -88,7 +134,6 @@ public class App extends Application {
 				primaryStage.setScene(scene);
 				primaryStage.show();
 			}
-			
 			}
 		} catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
@@ -97,6 +142,7 @@ public class App extends Application {
     		System.out.println(e.toString());
     		al.showAndWait();
 		}
+			}
 	}
 	/**
 	 * method in charge of switching screens
