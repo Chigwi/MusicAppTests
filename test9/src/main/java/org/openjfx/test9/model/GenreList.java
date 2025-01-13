@@ -1001,7 +1001,12 @@ public class GenreList {
 	 */
 	private final static String [] Genres = baseList.split("\r");
 	
-	private final static String path ="src/main/resources/genreList/MusicGenresList.bin";
+	//genres list home directory
+	static private final String home = System.getProperty("user.home");
+	//path towards the genres binary files
+	static private final String path = home + "\\GenreDive\\GenreList\\MusicGenresList";
+	
+	static private final File folder = new File(home + "\\GenreDive\\\\GenreList");
 	
 	private final static String name = "Music Genres List";
 	
@@ -1025,6 +1030,7 @@ public class GenreList {
 	 * method in charge of creating the directory holding the music genres list
 	 */
 	public static void createList () {
+		folder.mkdirs();
 		J.serializarStringA(Genres, path);
 	}
 	public static void createUserData(){

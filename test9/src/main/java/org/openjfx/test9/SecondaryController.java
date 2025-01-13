@@ -47,7 +47,10 @@ public class SecondaryController implements Initializable{
 	
 	File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
 	
-	private String path ="src/main/resources/genreList/MusicGenresList.bin";
+	//path towards the users binary files
+	 private final String path = home + "\\GenreDive\\GenreList\\MusicGenresList";
+		
+	 private final File folder = new File(home + "\\GenreDive\\\\GenreList");
 	
 	private String name = "Ejemplo";
 	
