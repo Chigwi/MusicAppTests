@@ -35,6 +35,12 @@ import java.util.ResourceBundle;
 public class SecondaryController implements Initializable{
 	
     @FXML
+    private ImageView logOut;
+	
+	@FXML
+    private ImageView deactivateSideBar;
+	
+    @FXML
     private ImageView activateSideBar;
     
     @FXML
@@ -98,8 +104,11 @@ public class SecondaryController implements Initializable{
 		try {
 			Image image = new Image(getClass().getClassLoader().getResourceAsStream("Aespa1.jpg"));
 			Image sideBar1 = new Image(getClass().getClassLoader().getResourceAsStream("sidebar-icon-1.png"));
+			Image logOut1 = new Image(getClass().getClassLoader().getResourceAsStream("logOutIcon.png"));
 			display.setImage(image);
 			activateSideBar.setImage(sideBar1);
+			deactivateSideBar.setImage(sideBar1);
+			logOut.setImage(logOut1);
 			//outDatos.setText(Arrays.toString(J.deserializarListA(path)));
 			outDatos.setVisible(false);
 		}catch(Exception e) {
