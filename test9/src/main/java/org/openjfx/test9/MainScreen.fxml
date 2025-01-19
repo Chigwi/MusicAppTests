@@ -15,7 +15,7 @@
       <ImageView fx:id="display" fitHeight="150.0" fitWidth="200.0" layoutX="349.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true" />
       <TextArea fx:id="outDatos" layoutX="69.0" layoutY="66.0" prefHeight="200.0" prefWidth="230.0" />
       <ImageView fx:id="activateSideBar" fitHeight="52.0" fitWidth="59.0" layoutY="2.0" onMouseClicked="#toggleSidebar" pickOnBounds="true" preserveRatio="true" />
-      <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom, #f4f4f8, #e6e6f0)" translateX="-150.0">
+      <VBox fx:id="sidebar" prefHeight="400.0" prefWidth="150.0" translateX="-150.0" styleClass="vbox">
          <children>
             <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="100.0" text="THIS WORKS" />
             <Button mnemonicParsing="false" text="example" />
