@@ -100,8 +100,6 @@ public class SecondaryController implements Initializable{
          Random rand = new Random();
          int upperbound = genreList.length;
          int random = rand.nextInt(upperbound);
-    	 
-    	 //genre = "dariacore"; // Replace with the selected genre
 
     	 // Encode the genre for the URL
          	String genre = genreList[random].trim();
