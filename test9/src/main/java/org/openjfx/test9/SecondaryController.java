@@ -37,6 +37,12 @@ import java.util.ResourceBundle;
 public class SecondaryController implements Initializable{
 	
     @FXML
+    private Button userProfile;
+    
+    @FXML
+    private Button Settings;
+	
+    @FXML
     private ImageView logOut;
 	
 	@FXML
@@ -113,7 +119,6 @@ public class SecondaryController implements Initializable{
 			activateSideBar.setImage(sideBar1);
 			deactivateSideBar.setImage(sideBar1);
 			logOut.setImage(logOut1);
-			//outDatos.setText(Arrays.toString(J.deserializarListA(path)));
 			outDatos.setVisible(false);
 		}catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
@@ -139,19 +144,29 @@ public class SecondaryController implements Initializable{
 		 transition.play();
 	    }
 	 
-
+	 	
 	    @FXML
 	    void logOut(MouseEvent event) {
 	    	try {
-	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
-	    	Usuario last = userData.get("last");
-	    	last.setLoggedIn(false);
-	    	J.serializarUser(userData, path1);
-	    	App.setRoot("LogInScreen");
+	    		HashMap <String,Usuario> userData = J.deserializarUser(path1);
+	    		Usuario last = userData.get("last");
+	    		last.setLoggedIn(false);
+	    		J.serializarUser(userData, path1);
+	    		App.setRoot("LogInScreen");
 	    	}catch(Exception e) {
 	    		e.printStackTrace();
 	    	}
 
 	    }
+	    
+	    @FXML
+	    void accessProfile(ActionEvent event) throws IOException {
+	    	App.setRoot("UserProfile");
+	    }
 
+	    @FXML
+	    void goSettings(ActionEvent event) throws IOException {
+	    	App.setRoot("Settings");
+
+	    }
 }

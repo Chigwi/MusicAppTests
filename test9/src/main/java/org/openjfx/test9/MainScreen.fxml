@@ -18,8 +18,8 @@
       <VBox fx:id="sidebar" focusTraversable="true" prefHeight="400.0" prefWidth="150.0" styleClass="vbox" translateX="-150.0">
          <children>
             <ImageView fx:id="deactivateSideBar" fitHeight="52.0" fitWidth="59.0" onMouseClicked="#toggleSidebar" pickOnBounds="true" preserveRatio="true" />
-            <Button mnemonicParsing="false" text="My music" />
-            <Button layoutX="10.0" layoutY="62.0" mnemonicParsing="false" text="Settings" />
+            <Button fx:id="userProfile" mnemonicParsing="false" onAction="#accessProfile" text="My music" />
+            <Button fx:id="Settings" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#goSettings" text="Settings" />
          </children>
       </VBox>
       <ImageView fx:id="logOut" fitHeight="52.0" fitWidth="59.0" layoutX="535.0" layoutY="2.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true" />
