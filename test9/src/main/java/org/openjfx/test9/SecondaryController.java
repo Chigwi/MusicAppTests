@@ -167,6 +167,5 @@ public class SecondaryController implements Initializable{
 	    @FXML
 	    void goSettings(ActionEvent event) throws IOException {
 	    	App.setRoot("Settings");
-
 	    }
 }
