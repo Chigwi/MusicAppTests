@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.openjfx.test9.model.Usuario;
 import org.openjfx.test9.services.SeralizationControler;
-
+import org.openjfx.test9.services.WikipediaFetcher;
 
 import javafx.fxml.Initializable;
 
@@ -36,6 +36,9 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SecondaryController implements Initializable{
+	
+	@FXML
+	private Button wiki;
 	
     @FXML
     private Button userProfile;
@@ -73,6 +76,8 @@ public class SecondaryController implements Initializable{
 	
 	File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
 	
+	String currentG = "";
+	
 	//path towards the users binary files
 	 private final String path = home + "\\GenreDive\\GenreList\\MusicGenresList";
 	 
@@ -105,10 +110,11 @@ public class SecondaryController implements Initializable{
          	String genre = genreList[random].trim();
          	 String encodedGenre = URLEncoder.encode(genre, StandardCharsets.UTF_8);
     	    System.out.println(encodedGenre);
-
+    	    this.currentG = encodedGenre;
     	    String url = "https://open.spotify.com/search/" + encodedGenre;
     	    try {
     	        Desktop.getDesktop().browse(new URI(url));
+    	        wiki.setDisable(false);
 
     	    } catch (IOException | URISyntaxException e) {
     	    	System.out.println("the char at 32 is :" + url.charAt(32) + ".");
@@ -128,7 +134,7 @@ public class SecondaryController implements Initializable{
 			activateSideBar.setImage(sideBar1);
 			deactivateSideBar.setImage(sideBar1);
 			logOut.setImage(logOut1);
-			outDatos.setVisible(false);
+			wiki.setDisable(true);
 		}catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
     		al.setTitle("Info");
@@ -177,4 +183,11 @@ public class SecondaryController implements Initializable{
 	    void goSettings(ActionEvent event) throws IOException {
 	    	App.setRoot("Settings");
 	    }
+	    
+	    @FXML
+	    void showInfo(ActionEvent event) {
+	    	String definition = WikipediaFetcher.fetchGenreDefinition(currentG);
+	    	outDatos.setText(definition);
+	    }
+	    
 }
