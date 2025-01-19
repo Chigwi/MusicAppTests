@@ -111,7 +111,7 @@ public class App extends Application {
 			GenreList.createList();
 			System.out.println(getClass().getName());
 			//gets the last user that was logged in
-			HashMap <String,Usuario> userData = J.deserializarUser(path);{ 
+			HashMap <String,Usuario> userData = J.deserializarUser(path); 
 			lastUser = userData.get(name);
 			System.out.println(lastUser);
 			//lastUser.setLoggedIn(false);
@@ -134,7 +134,7 @@ public class App extends Application {
 				primaryStage.setScene(scene);
 				primaryStage.show();
 			}
-			}
+			
 		} catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
     		al.setTitle("Info");

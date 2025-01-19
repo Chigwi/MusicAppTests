@@ -2,6 +2,7 @@ package org.openjfx.test9;
 
 import java.io.IOException;
 
+import org.openjfx.test9.model.Usuario;
 import org.openjfx.test9.services.SeralizationControler;
 
 
@@ -30,6 +31,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SecondaryController implements Initializable{
@@ -66,6 +68,8 @@ public class SecondaryController implements Initializable{
 	
 	//path towards the users binary files
 	 private final String path = home + "\\GenreDive\\GenreList\\MusicGenresList";
+	 
+	 private final String path1 = home + "\\GenreDive\\Users\\userData.bin";
 		
 	 private final File folder = new File(home + "\\GenreDive\\\\GenreList");
 	
@@ -133,6 +137,21 @@ public class SecondaryController implements Initializable{
 			 this.isVisible = true;
 		 }
 		 transition.play();
+	    }
+	 
+
+	    @FXML
+	    void logOut(MouseEvent event) {
+	    	try {
+	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
+	    	Usuario last = userData.get("last");
+	    	last.setLoggedIn(false);
+	    	J.serializarUser(userData, path1);
+	    	App.setRoot("LogInScreen");
+	    	}catch(Exception e) {
+	    		e.printStackTrace();
+	    	}
+
 	    }
 
 }
