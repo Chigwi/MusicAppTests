@@ -21,15 +21,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-import javafx.animation.Transition;
 import javafx.animation.TranslateTransition;
 
 import java.awt.Desktop;
 
 import java.net.URI;
-
+import java.util.Random;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -84,25 +85,35 @@ public class SecondaryController implements Initializable{
 	private boolean isVisible = false;
 	
 	
-	
+	/*
+	 * para que el JAR funcione hay que utiliar el default local openjfx simple maven plug in versison 21 de javafx
+	 * utilizar un anchor pane en la pantalla a mostrar
+	 * y serializar por fuera del archivo JAR
+	 */
+	//outDatos.setText(J.deserializarUser(path, name).toString());
     @FXML
     void switchToSecondary(ActionEvent event) {
-    	/*
-    	 * para que el JAR funcione hay que utiliar el default local openjfx simple maven plug in versison 21 de javafx
-    	 * utilizar un anchor pane en la pantalla a mostrar
-    	 * y serializar por fuera del archivo JAR
-    	 */
-    	//outDatos.setText(J.deserializarUser(path, name).toString());
-    	 String genre = "dariacore"; // Replace with the selected genre
+    	
+    	
+    	 String [] genreList = J.deserializarListA(path);
+    	 
+         Random rand = new Random();
+         int upperbound = genreList.length;
+         int random = rand.nextInt(upperbound);
+    	 
+    	 //genre = "dariacore"; // Replace with the selected genre
 
-    	    String url = "https://open.spotify.com/search/" + genre;
+    	 // Encode the genre for the URL
+         	String genre = genreList[random].trim();
+         	 String encodedGenre = URLEncoder.encode(genre, StandardCharsets.UTF_8);
+    	    System.out.println(encodedGenre);
 
+    	    String url = "https://open.spotify.com/search/" + encodedGenre;
     	    try {
-
     	        Desktop.getDesktop().browse(new URI(url));
 
     	    } catch (IOException | URISyntaxException e) {
-
+    	    	System.out.println("the char at 32 is :" + url.charAt(32) + ".");
     	        e.printStackTrace();
 
     	    }
