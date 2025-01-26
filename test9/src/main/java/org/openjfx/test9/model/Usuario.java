@@ -13,7 +13,8 @@ public class Usuario implements Serializable {
 	
 	private String Username,Password;
 	
-	private HashSet <String> ListenedGenres,MyFavorites;
+	private HashSet <String> ListenedGenres,MyFavorites,Avoided;
+	
 	
 	private boolean loggedIn,last;
 	
@@ -37,16 +38,6 @@ public class Usuario implements Serializable {
 		Password = password;
 		ListenedGenres = new HashSet <String>();
 		MyFavorites = new HashSet <String>();
-	}
-
-
-	public HashSet<String> getMyFavorites() {
-		return MyFavorites;
-	}
-
-
-	public void setMyFavorites(HashSet<String> myFavorites) {
-		MyFavorites = myFavorites;
 	}
 
 
@@ -104,6 +95,16 @@ public class Usuario implements Serializable {
 	public String toString() {
 		return "User [Username=" + Username + ", ListenedGenres=" + ListenedGenres.size()+ ", MyFavorites=" + MyFavorites
 				+ isLoggedIn()+ "]";
+	}
+
+
+	public HashSet <String> getAvoided() {
+		return Avoided;
+	}
+
+
+	public void setAvoided(HashSet <String> avoided) {
+		Avoided = avoided;
 	}
 
 

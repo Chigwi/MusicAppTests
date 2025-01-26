@@ -38,7 +38,7 @@ public class WikipediaFetcher {
 
         // Get the first page (there should only be one)
         String pageId = pages.keys().next();
-        String definition = pages.getJSONObject(pageId).optString("extract", "No definition available.");
+        String definition = pages.getJSONObject(pageId).optString("extract", "The genre: " + genre +" is so rare that Wikipedia doesnt have a definition");
         System.out.println(definition);
         if(definition.length()< 1) {
         	return "The genre: " + genre +" is so rare that Wikipedia doesnt have a definition";

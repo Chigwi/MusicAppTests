@@ -38,6 +38,9 @@ import java.util.ResourceBundle;
 public class SecondaryController implements Initializable{
 	
 	@FXML
+    private Button favs;
+	
+	@FXML
 	private Button wiki;
 	
     @FXML
@@ -66,9 +69,6 @@ public class SecondaryController implements Initializable{
 
     @FXML
     private Button primaryButton;
-
-    @FXML
-    private ImageView display;
     
     private SeralizationControler J = new SeralizationControler();
 
@@ -117,7 +117,6 @@ public class SecondaryController implements Initializable{
     	        wiki.setDisable(false);
 
     	    } catch (IOException | URISyntaxException e) {
-    	    	System.out.println("the char at 32 is :" + url.charAt(32) + ".");
     	        e.printStackTrace();
 
     	    }
@@ -127,10 +126,8 @@ public class SecondaryController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			Image image = new Image(getClass().getClassLoader().getResourceAsStream("Aespa1.jpg"));
 			Image sideBar1 = new Image(getClass().getClassLoader().getResourceAsStream("sidebar-icon-1.png"));
 			Image logOut1 = new Image(getClass().getClassLoader().getResourceAsStream("logOutIcon.png"));
-			display.setImage(image);
 			activateSideBar.setImage(sideBar1);
 			deactivateSideBar.setImage(sideBar1);
 			logOut.setImage(logOut1);
@@ -188,6 +185,16 @@ public class SecondaryController implements Initializable{
 	    void showInfo(ActionEvent event) {
 	    	String definition = WikipediaFetcher.fetchGenreDefinition(currentG);
 	    	outDatos.setText(definition);
+	    }
+	    
+	    @FXML
+	    void addToFavorites(ActionEvent event) {
+	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
+    		Usuario last = userData.get("last");
+    		last.getMyfavorites().add(currentG);
+    		J.serializarUser(userData, path1);
+    		System.out.println(last.getMyfavorites());
+
 	    }
 	    
 }
