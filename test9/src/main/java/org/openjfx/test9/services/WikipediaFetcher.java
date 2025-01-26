@@ -8,7 +8,9 @@ import org.json.JSONObject;
 
 public class WikipediaFetcher {
     public static String fetchGenreDefinition(String genre) {
+    	//url for the wikipedia api requests
         String urlString = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&format=json&titles=" + genre;
+        
         StringBuilder result = new StringBuilder();
         
         try {
@@ -31,13 +33,16 @@ public class WikipediaFetcher {
 
         // Check if there are any pages returned
         if (pages.length() == 0) {
-            return "No definition found for the genre: " + genre;
+            return "The genre: " + genre +" is so rare that Wikipedia doesnt have a definition";
         }
 
         // Get the first page (there should only be one)
         String pageId = pages.keys().next();
         String definition = pages.getJSONObject(pageId).optString("extract", "No definition available.");
-
+        System.out.println(definition);
+        if(definition.length()< 1) {
+        	return "The genre: " + genre +" is so rare that Wikipedia doesnt have a definition";
+        }
         return definition;
     }
 }
