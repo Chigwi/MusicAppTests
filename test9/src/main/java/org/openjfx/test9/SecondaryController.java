@@ -111,7 +111,8 @@ public class SecondaryController implements Initializable{
          	 String encodedGenre = URLEncoder.encode(genre, StandardCharsets.UTF_8);
     	    System.out.println(encodedGenre);
     	    this.currentG = encodedGenre;
-    	    String url = "https://open.spotify.com/search/" + encodedGenre;
+    	    String url = "spotify:search:" + encodedGenre;
+
     	    try {
     	        Desktop.getDesktop().browse(new URI(url));
     	        wiki.setDisable(false);
