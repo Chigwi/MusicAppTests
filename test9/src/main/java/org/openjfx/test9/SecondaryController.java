@@ -81,6 +81,8 @@ public class SecondaryController implements Initializable{
 	
 	String currentG = "";
 	
+	String currentDisplayg = "";
+	
 	//path towards the users binary files
 	 private final String path = home + "\\GenreDive\\GenreList\\MusicGenresList";
 	 
@@ -101,8 +103,6 @@ public class SecondaryController implements Initializable{
 	//outDatos.setText(J.deserializarUser(path, name).toString());
     @FXML
     void switchToSecondary(ActionEvent event) {
-    	
-    	
     	 String [] genreList = J.deserializarListA(path);
     	 
          Random rand = new Random();
@@ -114,11 +114,15 @@ public class SecondaryController implements Initializable{
          	 String encodedGenre = URLEncoder.encode(genre, StandardCharsets.UTF_8);
     	    System.out.println(encodedGenre);
     	    this.currentG = encodedGenre;
+    	    this.currentDisplayg = genre;
     	    String url = "spotify:search:" + encodedGenre;
 
     	    try {
     	        Desktop.getDesktop().browse(new URI(url));
     	        wiki.setDisable(false);
+    	        favs.setDisable(false);
+    			av1.setDisable(false);
+    			outDatos.setText("Your genre dive took you to " + genre + "!");
 
     	    } catch (IOException | URISyntaxException e) {
     	        e.printStackTrace();
@@ -136,6 +140,8 @@ public class SecondaryController implements Initializable{
 			deactivateSideBar.setImage(sideBar1);
 			logOut.setImage(logOut1);
 			wiki.setDisable(true);
+			favs.setDisable(true);
+			av1.setDisable(true);
 		}catch(Exception e) {
 			Alert al = new Alert(AlertType.INFORMATION);
     		al.setTitle("Info");
@@ -160,7 +166,6 @@ public class SecondaryController implements Initializable{
 		 transition.play();
 	    }
 	 
-	 	
 	    @FXML
 	    void logOut(MouseEvent event) {
 	    	try {
@@ -187,7 +192,7 @@ public class SecondaryController implements Initializable{
 	    
 	    @FXML
 	    void showInfo(ActionEvent event) {
-	    	String definition = WikipediaFetcher.fetchGenreDefinition(currentG);
+	    	String definition = WikipediaFetcher.fetchGenreDefinition(currentG,currentDisplayg);
 	    	outDatos.setText(definition);
 	    }
 	    
@@ -198,6 +203,10 @@ public class SecondaryController implements Initializable{
     		last.getMyfavorites().add(currentG);
     		J.serializarUser(userData, path1);
     		System.out.println(last.getMyfavorites());
+    		Alert al = new Alert(AlertType.INFORMATION);
+    		al.setTitle("Info");
+    		al.setContentText("Added to the My Favorite Genres list!");
+    		al.showAndWait();
 
 	    }
 	    
@@ -208,6 +217,10 @@ public class SecondaryController implements Initializable{
     		last.getAvoided().add(currentG);
     		J.serializarUser(userData, path1);
     		System.out.println(last.getAvoided());
+    		Alert al = new Alert(AlertType.INFORMATION);
+    		al.setTitle("Info");
+    		al.setContentText("Added to the Avoided Genres list!");
+    		al.showAndWait();
 	    }
 	    
 }

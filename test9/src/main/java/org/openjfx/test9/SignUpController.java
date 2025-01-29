@@ -15,9 +15,11 @@ import org.openjfx.test9.services.SeralizationControler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class SignUpController implements Initializable {
 
@@ -66,7 +68,10 @@ public class SignUpController implements Initializable {
     		}
     	}
     	else {
-    		outError.setText("Username already exist" + "\n" + "Please change your username");
+    		Alert al = new Alert(AlertType.INFORMATION);
+    		al.setTitle("Info");
+    		al.setContentText("Username already exist" + "\n" + "Please change your username");
+    		al.showAndWait();
     	}
     	System.out.println("Available password "+ validPassword(inPassword.getText()));
     	System.out.println("Available Username "+ validUsername(inUsername.getText()));
@@ -82,16 +87,20 @@ public class SignUpController implements Initializable {
     			return true;
     		}
     		else {
-    			outError.setVisible(true);
-    			outError.setText("Password doesn´t match requirements" + "\n" + 
-    			"Make sure password has:" + "\n"+ "1. at least 1 capital leter" 
-    			+ "\n" + "2. at least 8 total characters" + "\n" + "3. at least 1 number");
+    			Alert al = new Alert(AlertType.INFORMATION);
+        		al.setTitle("Info");
+        		al.setContentText("Password doesn´t match requirements" + "\n" + 
+            			"Make sure password has:" + "\n"+ "1. at least 1 capital leter" 
+            			+ "\n" + "2. at least 8 total characters" + "\n" + "3. at least 1 number");
+        		al.showAndWait();
     		}
     		
     	}
     	else {
-    		outError.setVisible(true);
-    		outError.setText("Please make sure passwords match");
+    		Alert al = new Alert(AlertType.INFORMATION);
+    		al.setTitle("Info");
+    		al.setContentText("Please make sure passwords match");
+    		al.showAndWait();
     	}
     	return false;
     }
