@@ -13,8 +13,8 @@
       <Button fx:id="backButton" layoutX="528.0" layoutY="331.0" mnemonicParsing="false" onAction="#backToMainScreen" text="Back" />
       <TableView fx:id="genresTable" layoutX="14.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="Cfavs" prefWidth="75.0" text="Favorites" />
-          <TableColumn fx:id="Cav" prefWidth="75.0" text="Avoided" />
+          <TableColumn fx:id="Cfavs" prefWidth="100.0" text="Favorites" />
+          <TableColumn fx:id="Cav" prefWidth="100.0" text="Avoided" />
         </columns>
       </TableView>
    </children>
