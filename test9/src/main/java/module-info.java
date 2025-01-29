@@ -5,5 +5,6 @@ module org.openjfx.test9 {
 	requires org.json;
 
     opens org.openjfx.test9 to javafx.fxml;
+    opens org.openjfx.test9.model to javafx.base;
     exports org.openjfx.test9;
 }
