@@ -74,7 +74,7 @@ public class ProfileController implements Initializable{
 				Gens x = new Gens(lisFavs.get(i),"");
 				genres.add(x);
 			}
-			else {
+			else if(i > lisFavs.size() && i > lisAvs.size()){
 				Gens x = new Gens("",lisAvs.get(i));
 				genres.add(x);
 			}
