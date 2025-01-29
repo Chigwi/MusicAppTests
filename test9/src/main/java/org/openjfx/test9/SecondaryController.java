@@ -200,7 +200,7 @@ public class SecondaryController implements Initializable{
 	    void addToFavorites(ActionEvent event) {
 	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
     		Usuario last = userData.get("last");
-    		last.getMyfavorites().add(currentG);
+    		last.getMyfavorites().add(currentDisplayg);
     		J.serializarUser(userData, path1);
     		System.out.println(last.getMyfavorites());
     		Alert al = new Alert(AlertType.INFORMATION);
@@ -214,7 +214,7 @@ public class SecondaryController implements Initializable{
 	    void addToAvoided(ActionEvent event) {
 	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
     		Usuario last = userData.get("last");
-    		last.getAvoided().add(currentG);
+    		last.getAvoided().add(currentDisplayg);
     		J.serializarUser(userData, path1);
     		System.out.println(last.getAvoided());
     		Alert al = new Alert(AlertType.INFORMATION);
