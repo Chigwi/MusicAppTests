@@ -38,6 +38,7 @@ public class Usuario implements Serializable {
 		Password = password;
 		ListenedGenres = new HashSet <String>();
 		MyFavorites = new HashSet <String>();
+		Avoided = new HashSet<String>();
 	}
 
 
@@ -94,7 +95,7 @@ public class Usuario implements Serializable {
 	@Override
 	public String toString() {
 		return "User [Username=" + Username + ", ListenedGenres=" + ListenedGenres.size()+ ", MyFavorites=" + MyFavorites
-				+ isLoggedIn()+ "]";
+				+ "MyAvoided" + Avoided + isLoggedIn()+ "]";
 	}
 
 

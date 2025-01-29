@@ -37,6 +37,9 @@ import java.util.ResourceBundle;
 
 public class SecondaryController implements Initializable{
 	
+    @FXML
+    private Button av1;
+	
 	@FXML
     private Button favs;
 	
@@ -196,6 +199,15 @@ public class SecondaryController implements Initializable{
     		J.serializarUser(userData, path1);
     		System.out.println(last.getMyfavorites());
 
+	    }
+	    
+	    @FXML
+	    void addToAvoided(ActionEvent event) {
+	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
+    		Usuario last = userData.get("last");
+    		last.getAvoided().add(currentG);
+    		J.serializarUser(userData, path1);
+    		System.out.println(last.getAvoided());
 	    }
 	    
 }

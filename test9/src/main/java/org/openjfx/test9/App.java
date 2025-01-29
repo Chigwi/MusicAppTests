@@ -27,12 +27,12 @@ public class App extends Application {
 	
 	private static Scene scene;
 	
-	private SeralizationControler J = new SeralizationControler();
+	private static SeralizationControler J = new SeralizationControler();
 	
 	//users home directory
-	private final String home = System.getProperty("user.home");
+	private final static String home = System.getProperty("user.home");
 	//path towards the users binary files
-	private final String path = home + "\\GenreDive\\Users\\userData.bin";
+	private final static String path = home + "\\GenreDive\\Users\\userData.bin";
 	
 	private final File folder = new File(home + "\\GenreDive\\\\Users");
 	
@@ -48,33 +48,14 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		if(J.deserializarUser(path)==null){
-				Usuario user1 = new Usuario ("Allie","Chigwi23");
-				
-				Usuario user2 = new Usuario ("Salo","Salo123");
-				
-				Usuario user3 = new Usuario ("Cothu","Chotu");
-				
-				Usuario last = user1;
-				
-				UserData.put("Allie", user1);
-				
-				UserData.put("Salo", user2);
-				
-				UserData.put("Cothu", user3);
-				
-				UserData.put("last", last);
-				
-				J.serializarUser(UserData, path);
-				System.out.println(UserData.get("last")+ "no guardó");
-				
-				J.serializarUser(UserData,"src/main/resources/users/userData.bin");
+				createUserData();
 				try {
 					folder.mkdirs();
 					GenreList.createList();
 					System.out.println(getClass().getName());
 					//gets the last user that was logged in
-					HashMap <String,Usuario> userData = J.deserializarUser(path);{ 
-					lastUser = UserData.get(name);
+					HashMap <String,Usuario> userData = J.deserializarUser(path);
+					lastUser = userData.get(name);
 					System.out.println(lastUser);
 					lastUser.setLoggedIn(false);
 					//checks if said user logged out before closing the app
@@ -95,7 +76,6 @@ public class App extends Application {
 						scene.getStylesheets().add(css);
 						primaryStage.setScene(scene);
 						primaryStage.show();
-					}
 					}
 				} catch(Exception e) {
 					Alert al = new Alert(AlertType.INFORMATION);
@@ -167,4 +147,30 @@ public class App extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
+	private  void createUserData (){
+		folder.mkdirs();
+		
+		Usuario user1 = new Usuario ("Allie","Chigwi23");
+		
+		Usuario user2 = new Usuario ("Salo","Salo123");
+		
+		Usuario user3 = new Usuario ("Cothu","Chotu");
+		
+		Usuario last = user1;
+		
+		UserData.put("Allie", user1);
+		
+		UserData.put("Salo", user2);
+		
+		UserData.put("Cothu", user3);
+		
+		UserData.put("last", last);
+		
+		J.serializarUser(UserData, path);
+		System.out.println(UserData.get("last")+ "no guardó");
+		
+		J.serializarUser(UserData,"src/main/resources/users/userData.bin");
+	}
+	
 }
