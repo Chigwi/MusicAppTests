@@ -12,10 +12,10 @@
    <children>
       <Label layoutX="272.0" layoutY="14.0" text="My profile" />
       <Label fx:id="OutError" layoutX="83.0" layoutY="257.0" text="Wrong username or password" visible="false" wrapText="true" />
-      <TableView fx:id="genresTable" layoutX="14.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="genresTable" layoutX="14.0" layoutY="57.0" prefHeight="318.0" prefWidth="244.0">
         <columns>
-          <TableColumn fx:id="Cfavs" prefWidth="100.0" text="Favorites" />
-          <TableColumn fx:id="Cav" prefWidth="100.0" text="Avoided" />
+          <TableColumn fx:id="Cfavs" prefWidth="122.0" text="Favorites" />
+          <TableColumn fx:id="Cav" prefWidth="122.0" text="Avoided" />
         </columns>
       </TableView>
       <ImageView fx:id="activateSideBar" fitHeight="43.0" fitWidth="45.0" layoutY="2.0" onMouseClicked="#toggleSidebar" pickOnBounds="true" preserveRatio="true" />

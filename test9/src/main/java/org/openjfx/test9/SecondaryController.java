@@ -134,11 +134,7 @@ public class SecondaryController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			Image sideBar1 = new Image(getClass().getClassLoader().getResourceAsStream("sidebar-icon-1.png"));
-			Image logOut1 = new Image(getClass().getClassLoader().getResourceAsStream("logOutIcon.png"));
-			activateSideBar.setImage(sideBar1);
-			deactivateSideBar.setImage(sideBar1);
-			logOut.setImage(logOut1);
+			populateImages();
 			wiki.setDisable(true);
 			favs.setDisable(true);
 			av1.setDisable(true);
@@ -223,4 +219,17 @@ public class SecondaryController implements Initializable{
     		al.showAndWait();
 	    }
 	    
+	    private void populateImages() {
+	    	
+	    	Image sideBar1 = new Image(getClass().getClassLoader().getResourceAsStream("sidebar-icon-1.png"));
+			
+	    	Image logOut1 = new Image(getClass().getClassLoader().getResourceAsStream("logOutIcon.png"));
+			
+	    	activateSideBar.setImage(sideBar1);
+			
+	    	deactivateSideBar.setImage(sideBar1);
+			
+	    	logOut.setImage(logOut1);
+	    	
+	    }
 }
