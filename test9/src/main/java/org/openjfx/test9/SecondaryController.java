@@ -75,13 +75,13 @@ public class SecondaryController implements Initializable{
     
     private SeralizationControler J = new SeralizationControler();
 
-	String home = System.getProperty("user.home");
+	private String home = System.getProperty("user.home");
 	
-	File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
+	private File carpeta = new File(home + "\\SerialTests\\\\Usuarios");
 	
-	String currentG = "";
+	private String currentG = "";
 	
-	String currentDisplayg = "";
+	private String currentDisplayg = "";
 	
 	//path towards the users binary files
 	 private final String path = home + "\\GenreDive\\GenreList\\MusicGenresList";
@@ -154,7 +154,7 @@ public class SecondaryController implements Initializable{
 	}
 	
 	 @FXML
-	    void toggleSidebar(MouseEvent event) {
+	 private void toggleSidebar(MouseEvent event) {
 		 TranslateTransition transition = new TranslateTransition(Duration.millis(300), sidebar);
 		 if(isVisible) {
 			 transition.setToX(-sidebar.getWidth()); // Slide out

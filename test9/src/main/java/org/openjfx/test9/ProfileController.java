@@ -1,7 +1,12 @@
 package org.openjfx.test9;
 
+import java.awt.Desktop;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -101,7 +106,9 @@ public class ProfileController implements Initializable{
                 Gens selectedGenre = genresTable.getSelectionModel().getSelectedItem();
 
                 if (selectedGenre != null) {
-                    //showGenreInfo(selectedGenre);
+                	if(!selectedGenre.getFav().equals("")) {
+                		showGenreInfo(selectedGenre.getFav());
+                	}
 
                 }
 
@@ -127,11 +134,11 @@ public class ProfileController implements Initializable{
 				Gens x = new Gens (lisFavs.get(i),lisAvs.get(i));
 				genres.add(x);
 			}
-			else if(i<lisFavs.size() && i> lisAvs.size()) {
+			else if(i < lisFavs.size() && i > lisAvs.size()) {
 				Gens x = new Gens(lisFavs.get(i),"");
 				genres.add(x);
 			}
-			else if(i > lisFavs.size() && i > lisAvs.size()){
+			else if(i > lisFavs.size() && i < lisAvs.size()){
 				Gens x = new Gens("",lisAvs.get(i));
 				genres.add(x);
 			}
@@ -152,7 +159,7 @@ public class ProfileController implements Initializable{
 	}
 	
 	 @FXML
-	    void toggleSidebar(MouseEvent event) {
+	 private void toggleSidebar(MouseEvent event) {
 		 TranslateTransition transition = new TranslateTransition(Duration.millis(300), sidebar);
 		 if(isVisible) {
 			 transition.setToX(-sidebar.getWidth()); // Slide out
@@ -163,6 +170,18 @@ public class ProfileController implements Initializable{
 		 }
 		 transition.play();
 	    }
-
+	 	
+	 private void showGenreInfo(String genre) {
+		 String encodedGenre = URLEncoder.encode(genre,StandardCharsets.UTF_8);
+		 String URL = "spotify:search:" + encodedGenre;
+		 
+		 try {
+			 Desktop.getDesktop().browse(new URI(URL));
+		 }catch(IOException | URISyntaxException e) {
+			 e.printStackTrace();
+		 }
+	 }
+	 
+	 
 }
 
