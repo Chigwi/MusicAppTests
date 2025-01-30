@@ -38,7 +38,7 @@ public class ProfileController implements Initializable{
     private Button backButton;
     
     @FXML
-    private TableView<Gens> genresTable;
+    private TableView<Gens> genresTable = new TableView <Gens>();
     
     private String home = System.getProperty("user.home");
     
@@ -58,13 +58,36 @@ public class ProfileController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		genresTable.setOnMouseClicked(event -> {
+
+            if (event.getClickCount() == 2) { // Check for double-click
+
+                Gens selectedGenre = genresTable.getSelectionModel().getSelectedItem();
+
+                if (selectedGenre != null) {
+
+                    //showGenreInfo(selectedGenre);
+
+                }
+
+            }
+
+        });
+		
 		HashMap <String,Usuario> userData = J.deserializarUser(path);
+		
 		Usuario last = userData.get("last");
+		
 		HashSet<String> myFavs = last.getMyfavorites();
+		
 		HashSet<String> myAv = last.getAvoided();
+		
 		List <String> lisFavs = new ArrayList<String>(myFavs);
 		List <String> lisAvs = new ArrayList<String>(myAv);
+		
 		int max = Math.max(lisFavs.size(), lisAvs.size());
+		
 		for (int i = 0; i < max; i++) {
 			if(i<lisFavs.size() && i<lisAvs.size()) {
 				Gens x = new Gens (lisFavs.get(i),lisAvs.get(i));
@@ -79,6 +102,7 @@ public class ProfileController implements Initializable{
 				genres.add(x);
 			}
 		}
+		
 		Cav.setCellValueFactory(new PropertyValueFactory<Gens,String>("Av"));
 		Cfavs.setCellValueFactory(new PropertyValueFactory<Gens, String>("Fav"));
 		genresTable.setItems(genres);
@@ -86,7 +110,6 @@ public class ProfileController implements Initializable{
 		
 		
 	}
-	
 	
 	
 
