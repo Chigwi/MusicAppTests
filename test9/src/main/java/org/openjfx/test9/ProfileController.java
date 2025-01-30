@@ -87,12 +87,21 @@ public class ProfileController implements Initializable{
     }
     
     @FXML
-    void goSettings(ActionEvent event) {
-
+    void goSettings(ActionEvent event) throws IOException {
+    	App.setRoot("Settings");
     }
 
     @FXML
     void logOut(MouseEvent event) {
+    	try {
+    		HashMap <String,Usuario> userData = J.deserializarUser(path);
+    		Usuario last = userData.get("last");
+    		last.setLoggedIn(false);
+    		J.serializarUser(userData, path);
+    		App.setRoot("LogInScreen");
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
 
     }
 

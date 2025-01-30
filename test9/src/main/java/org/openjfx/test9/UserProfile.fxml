@@ -23,8 +23,8 @@
       <VBox fx:id="sidebar" focusTraversable="true" prefHeight="400.0" prefWidth="150.0" styleClass="vbox" translateX="-150.0">
          <children>
             <ImageView fx:id="deactivateSideBar" fitHeight="43.0" fitWidth="45.0" onMouseClicked="#toggleSidebar" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="mainScreen" mnemonicParsing="false" onAction="#backToMainScreen" text="Button" />
-            <Button fx:id="settings" layoutX="10.0" layoutY="53.0" mnemonicParsing="false" onAction="#goSettings" text="Button" />
+            <Button fx:id="mainScreen" mnemonicParsing="false" onAction="#backToMainScreen" text="Dive!" />
+            <Button fx:id="settings" layoutX="10.0" layoutY="53.0" mnemonicParsing="false" onAction="#goSettings" text="Settings" />
          </children>
       </VBox>
    </children>
