@@ -118,12 +118,14 @@ public class SecondaryController implements Initializable{
     	    String url = "spotify:search:" + encodedGenre;
 
     	    try {
+    	    	
     	        Desktop.getDesktop().browse(new URI(url));
     	        wiki.setDisable(false);
     	        favs.setDisable(false);
     			av1.setDisable(false);
     			outDatos.setText("Your genre dive took you to " + genre + "!");
-
+    			addDive();
+    			
     	    } catch (IOException | URISyntaxException e) {
     	        e.printStackTrace();
 
@@ -163,7 +165,7 @@ public class SecondaryController implements Initializable{
 	    }
 	 
 	    @FXML
-	    void logOut(MouseEvent event) {
+	 private void logOut(MouseEvent event) {
 	    	try {
 	    		HashMap <String,Usuario> userData = J.deserializarUser(path1);
 	    		Usuario last = userData.get("last");
@@ -177,23 +179,24 @@ public class SecondaryController implements Initializable{
 	    }
 	    
 	    @FXML
-	    void accessProfile(ActionEvent event) throws IOException {
+	  private void accessProfile(ActionEvent event) throws IOException {
 	    	App.setRoot("UserProfile");
 	    }
 
 	    @FXML
-	    void goSettings(ActionEvent event) throws IOException {
+	  private void goSettings(ActionEvent event) throws IOException {
 	    	App.setRoot("Settings");
 	    }
 	    
 	    @FXML
-	    void showInfo(ActionEvent event) {
+	  private void showInfo(ActionEvent event) {
 	    	String definition = WikipediaFetcher.fetchGenreDefinition(currentG,currentDisplayg);
 	    	outDatos.setText(definition);
+	    	addWiki();
 	    }
 	    
 	    @FXML
-	    void addToFavorites(ActionEvent event) {
+	  private void addToFavorites(ActionEvent event) {
 	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
     		Usuario last = userData.get("last");
     		last.getMyfavorites().add(currentDisplayg);
@@ -207,7 +210,7 @@ public class SecondaryController implements Initializable{
 	    }
 	    
 	    @FXML
-	    void addToAvoided(ActionEvent event) {
+	  private void addToAvoided(ActionEvent event) {
 	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
     		Usuario last = userData.get("last");
     		last.getAvoided().add(currentDisplayg);
@@ -231,5 +234,42 @@ public class SecondaryController implements Initializable{
 			
 	    	logOut.setImage(logOut1);
 	    	
+	    }
+	    
+	    private void addDive() {
+	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
+    		Usuario last = userData.get("last");
+    		if(last.getDives()== null) {
+    			
+    			int [] dives = new int[1];
+    			dives[0]++;
+    			last.setDives(dives);
+    			J.serializarUser(userData, path1);
+    			
+    		}else {
+    			
+    			last.getDives() [0] ++;
+        		J.serializarUser(userData, path1);
+        		
+    		}
+    		
+	    }
+	    
+	    private void addWiki() {
+	    	HashMap <String,Usuario> userData = J.deserializarUser(path1);
+    		Usuario last = userData.get("last");
+    		if(last.getWikis() == null) {
+    			
+    			int wikis [] = new int[1];
+    			wikis [0]++;
+    			last.setWikis(wikis);
+    			J.serializarUser(userData, path1);
+    			
+    		}else {
+    			
+    			last.getWikis() [0] ++;
+        		J.serializarUser(userData, path1);
+    			
+    		}
 	    }
 }

@@ -5,9 +5,12 @@
 package org.openjfx.test9.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class Usuario implements Serializable {
+	
+	private int [] Dives,Wikis;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -36,6 +39,8 @@ public class Usuario implements Serializable {
 		super();
 		Username = username;
 		Password = password;
+		Dives = new int[1];
+		Wikis = new int[1];
 		ListenedGenres = new HashSet <String>();
 		MyFavorites = new HashSet <String>();
 		Avoided = new HashSet<String>();
@@ -92,13 +97,6 @@ public class Usuario implements Serializable {
 	}
 
 
-	@Override
-	public String toString() {
-		return "User [Username=" + Username + ", ListenedGenres=" + ListenedGenres.size()+ ", MyFavorites=" + MyFavorites
-				+ "MyAvoided" + Avoided + isLoggedIn()+ "]";
-	}
-
-
 	public HashSet <String> getAvoided() {
 		return Avoided;
 	}
@@ -109,6 +107,34 @@ public class Usuario implements Serializable {
 	}
 
 
+	public int[] getDives() {
+		return Dives;
+	}
+
+
+	public void setDives(int[] dives) {
+		Dives = dives;
+	}
+
+
+	public int[] getWikis() {
+		return Wikis;
+	}
+
+
+	public void setWikis(int[] wikis) {
+		Wikis = wikis;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Usuario [Dives=" + Arrays.toString(Dives) + ", Wikis=" + Arrays.toString(Wikis) + ", Username="
+				+ Username + ", Password=" + Password + ", ListenedGenres=" + ListenedGenres + ", MyFavorites="
+				+ MyFavorites + ", Avoided=" + Avoided + ", loggedIn=" + loggedIn + ", last=" + last + "]";
+	}
+
+	
 
 	
 	

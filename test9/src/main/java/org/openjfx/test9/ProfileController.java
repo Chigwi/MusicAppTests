@@ -122,6 +122,17 @@ public class ProfileController implements Initializable{
                 }
 
             }
+            else if(event.getClickCount() == 3){
+            	
+            	 Gens selectedGenre = genresTable.getSelectionModel().getSelectedItem();
+
+                 if (selectedGenre != null) {
+                 	if(!selectedGenre.getAv().equals("")) {
+                 		showGenreInfo(selectedGenre.getAv());
+                 	}
+                 }
+                 	
+            }
 
         });
 		
