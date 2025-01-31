@@ -20,10 +20,13 @@ import org.openjfx.test9.services.SeralizationControler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,13 +37,28 @@ import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ProfileController implements Initializable{ 
+public class ProfileController implements Initializable{
 	
 	@FXML
-    private Label outAvs;
+	private Label avoideds;
+	
+	@FXML
+    private Label favorites;
+	
+	@FXML
+	private Label saveds;
+	
+	@FXML
+	private Label title;
+
+	@FXML
+	private Label user;
+	
+    @FXML
+    private ProgressBar progDive;
 
     @FXML
-    private Label outDIves;
+    private ProgressBar progWiki;
 
     @FXML
     private Label outFavs;
@@ -52,7 +70,7 @@ public class ProfileController implements Initializable{
     private Label outUser;
 
     @FXML
-    private Label outWikis;
+    private Label outAvs;
 	
 	@FXML
 	private ImageView logOut;
@@ -96,6 +114,7 @@ public class ProfileController implements Initializable{
     private ObservableList<Gens> genres = FXCollections.observableArrayList();
     
     private boolean isVisible = false;
+    
    
     
     
@@ -159,6 +178,8 @@ public class ProfileController implements Initializable{
 		populateImages();
 		
 		populateGrid();
+		
+		populateProgBars();
 		
 	}
 	
@@ -241,12 +262,251 @@ public class ProfileController implements Initializable{
  		int saves = last.getMyfavorites().size() + last.getAvoided().size();
  		
  		outUser.setText(last.getUsername());
- 		outDIves.setText("" + last.getDives()[0]);
- 		outWikis.setText("" + last.getWikis()[0]);
  		outFavs.setText("" + last.getMyfavorites().size());
  		outAvs.setText("" + last.getAvoided().size());
  		outSaves.setText(""+ saves);
  		
+	 }
+	 
+	 private void populateProgBars() {
+		calculateProgDive();
+		calculateProgWiki();
+	 }
+	 private void calculateProgDive() {
+		 Double total = 10.0;
+		 Double progress = 0.0;
+			HashMap <String,Usuario> userData = J.deserializarUser(path);
+		 	Usuario last = userData.get("last");
+		 	
+		 	int dives =last.getDives()[0];
+		 	
+		 	if(dives < total) {
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 	}
+		 	else if(dives == total) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 50) {
+		 		total = 50.0;
+		 		progress = (dives /total);
+		 		System.out.println(progress);
+		 		progDive.setProgress(progress);
+		 	}
+		 	else if(dives == 50) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 100) {
+		 		total = 100.0;
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 	}
+		 	else if(dives == 100) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 250) {
+		 		total = 250.0;
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 	}
+		 	else if(dives == 250) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 500) {
+		 		total = 500.0;
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 	}
+		 	else if(dives == 500) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 750) {
+		 		total = 750.0;
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 	}
+		 	else if(dives == 750) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 1000) {
+		 		total = 1000.0;
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 		
+		 	}
+		 	else if(dives == 1000) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 1250) {
+		 		total = 1250.0;
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 	}
+		 	else if(dives == 1250) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else if(dives < 1500) {
+		 		total = 1500.0;
+		 		progress = (dives /total);
+		 		progDive.setProgress(progress);
+		 		
+		 	}
+		 	else if(dives == 1500) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
+	    		al.showAndWait();
+		 	}
+		 	else {
+		 		progDive.setProgress(100);
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to over 1500 dives!" + " please touch grass <3");
+	    		al.showAndWait();
+		 		
+		 	}
+	 }
+	 
+	 private void calculateProgWiki() {
+		 	Double total = 10.0;
+		 	Double progress = 0.0;
+			HashMap <String,Usuario> userData = J.deserializarUser(path);
+		 	Usuario last = userData.get("last");
+		 	
+		 	int wikis =last.getWikis()[0];
+		 	
+		 	if(wikis < total) {
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);
+		 	}
+		 	else if( wikis == 10) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 50) {
+		 		total = 50.0;
+		 		progress = (wikis/total);
+		 		progWiki.setProgress(progress);
+		 		System.out.println(progress);
+		 	}
+		 	else if( wikis == 50) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 100) {
+		 		total = 100.0;
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);
+		 	}
+		 	else if( wikis == 100) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 250) {
+		 		total = 250.0;
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);
+		 	}
+		 	else if( wikis == 250) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 500) {
+		 		total = 500.0;
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);
+		 	}
+		 	else if( wikis == 500) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 750) {
+		 		total = 750.0;
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);
+		 	}
+		 	else if( wikis == 750) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 1000) {
+		 		total = 1000.0;
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);
+		 		
+		 	}
+		 	else if( wikis == 1000) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 1250) {
+		 		total = 1250.0;
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);;
+		 	}
+		 	else if( wikis == 1250) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else if(wikis < 1500) {
+		 		total = 1500.0;
+		 		progress = (wikis /total);
+		 		progWiki.setProgress(progress);
+		 		
+		 	}
+		 	else if( wikis == 1500) {
+		 		Alert al = new Alert(AlertType.INFORMATION);
+		 		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
+	    		al.showAndWait();
+		 	}
+		 	else {
+		 		progWiki.setProgress(100);
+		 		Alert al = new Alert(AlertType.INFORMATION);
+	    		al.setTitle("Info");
+	    		al.setContentText("Congratulations on getting to over 1500 wikis!" + " please touch grass <3");
+	    		al.showAndWait();
+		 	}
 	 }
 }
 

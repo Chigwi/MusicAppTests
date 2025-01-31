@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
@@ -13,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.test9.ProfileController">
    <children>
-      <Label layoutX="272.0" layoutY="14.0" text="My profile" />
+      <Label fx:id="title" layoutX="272.0" layoutY="14.0" text="My profile" />
       <Label fx:id="OutError" layoutX="83.0" layoutY="257.0" text="Wrong username or password" visible="false" wrapText="true" />
       <TableView fx:id="genresTable" layoutX="14.0" layoutY="57.0" prefHeight="318.0" prefWidth="244.0">
         <columns>
@@ -30,7 +31,7 @@
             <Button fx:id="settings" layoutX="10.0" layoutY="53.0" mnemonicParsing="false" onAction="#goSettings" text="Settings" />
          </children>
       </VBox>
-      <GridPane hgap="20.0" layoutX="327.0" layoutY="61.0" prefHeight="318.0" prefWidth="244.0">
+      <GridPane hgap="20.0" layoutX="327.0" layoutY="61.0" prefHeight="200.0" prefWidth="244.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -40,23 +41,21 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label fx:id="outUser" alignment="CENTER_RIGHT" text="Label" GridPane.columnIndex="1" />
-            <Label text="Total DIves" GridPane.rowIndex="1" />
-            <Label fx:id="outDIves" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Total Wikis" GridPane.rowIndex="2" />
-            <Label fx:id="outWikis" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Total Favorites" GridPane.rowIndex="3" />
-            <Label fx:id="outFavs" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="User Name" />
-            <Label text="Total Avoided" GridPane.rowIndex="4" />
-            <Label text="Total Saved" GridPane.rowIndex="5" />
-            <Label fx:id="outAvs" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="outSaves" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="favorites" text="Total Favorites" GridPane.rowIndex="1" />
+            <Label fx:id="outFavs" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="user" text="User Name" />
+            <Label fx:id="avoideds" text="Total Avoided" GridPane.rowIndex="2" />
+            <Label fx:id="saveds" text="Total Saved" GridPane.rowIndex="3" />
+            <Label fx:id="outAvs" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="outSaves" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
+      <Label fx:id="outDIves" layoutX="508.0" layoutY="278.0" text="Total Dives" />
+      <Label fx:id="outWikis" layoutX="508.0" layoutY="319.0" text="Total WIkis" />
+      <ProgressBar fx:id="progDive" layoutX="302.0" layoutY="275.0" prefHeight="25.0" prefWidth="205.0" progress="0.0" />
+      <ProgressBar fx:id="progWiki" layoutX="302.0" layoutY="316.0" prefHeight="25.0" prefWidth="205.0" progress="0.0" />
    </children>
 </AnchorPane>
