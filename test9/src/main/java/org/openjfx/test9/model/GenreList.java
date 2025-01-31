@@ -1026,6 +1026,10 @@ public class GenreList {
 	public String toString() {
 		return "GenreList [Genres=" + Arrays.toString(Genres) + "]";
 	}
+	
+	public static String[] getGenress() {
+		return Genres;
+	}
 	/**
 	 * method in charge of creating the directory holding the music genres list
 	 */

@@ -34,7 +34,25 @@ import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ProfileController implements Initializable{
+public class ProfileController implements Initializable{ 
+	
+	@FXML
+    private Label outAvs;
+
+    @FXML
+    private Label outDIves;
+
+    @FXML
+    private Label outFavs;
+
+    @FXML
+    private Label outSaves;
+
+    @FXML
+    private Label outUser;
+
+    @FXML
+    private Label outWikis;
 	
 	@FXML
 	private ImageView logOut;
@@ -140,6 +158,8 @@ public class ProfileController implements Initializable{
 		
 		populateImages();
 		
+		populateGrid();
+		
 	}
 	
 	 @FXML
@@ -212,6 +232,21 @@ public class ProfileController implements Initializable{
 		 	deactivateSideBar.setImage(sideBar1);
 			
 		 	logOut.setImage(logOut1);
+	 }
+	 
+	 private void populateGrid() {
+		
+		HashMap <String,Usuario> userData = J.deserializarUser(path);
+ 		Usuario last = userData.get("last");
+ 		int saves = last.getMyfavorites().size() + last.getAvoided().size();
+ 		
+ 		outUser.setText(last.getUsername());
+ 		outDIves.setText("" + last.getDives()[0]);
+ 		outWikis.setText("" + last.getWikis()[0]);
+ 		outFavs.setText("" + last.getMyfavorites().size());
+ 		outAvs.setText("" + last.getAvoided().size());
+ 		outSaves.setText(""+ saves);
+ 		
 	 }
 }
 
