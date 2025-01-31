@@ -39,6 +39,12 @@ import javafx.collections.ObservableList;
 
 public class ProfileController implements Initializable{
 	
+    @FXML
+    private Label outProgDive;
+
+    @FXML
+    private Label outProgWiki;
+	
 	@FXML
 	private Label avoideds;
 	
@@ -115,21 +121,19 @@ public class ProfileController implements Initializable{
     
     private boolean isVisible = false;
     
-   
-    
     
     @FXML
-    void backToMainScreen(ActionEvent event) throws IOException {
+     public void backToMainScreen(ActionEvent event) throws IOException {
     	App.setRoot("MainScreen");
     }
     
     @FXML
-    void goSettings(ActionEvent event) throws IOException {
+     public void goSettings(ActionEvent event) throws IOException {
     	App.setRoot("Settings");
     }
 
     @FXML
-    void logOut(MouseEvent event) {
+     public void logOut(MouseEvent event) {
     	try {
     		HashMap <String,Usuario> userData = J.deserializarUser(path);
     		Usuario last = userData.get("last");
@@ -272,6 +276,7 @@ public class ProfileController implements Initializable{
 		calculateProgDive();
 		calculateProgWiki();
 	 }
+	 
 	 private void calculateProgDive() {
 		 Double total = 10.0;
 		 Double progress = 0.0;
@@ -283,96 +288,112 @@ public class ProfileController implements Initializable{
 		 	if(dives < total) {
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == total) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 50) {
 		 		total = 50.0;
 		 		progress = (dives /total);
 		 		System.out.println(progress);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == 50) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 100) {
 		 		total = 100.0;
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == 100) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 250) {
 		 		total = 250.0;
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == 250) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 500) {
 		 		total = 500.0;
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == 500) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 750) {
 		 		total = 750.0;
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == 750) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 1000) {
 		 		total = 1000.0;
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
-		 		
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == 1000) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 1250) {
 		 		total = 1250.0;
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives == 1250) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else if(dives < 1500) {
 		 		total = 1500.0;
 		 		progress = (dives /total);
 		 		progDive.setProgress(progress);
+		 		outProgDive.setText(dives + "/" + total);
 		 		
 		 	}
 		 	else if(dives == 1500) {
@@ -380,6 +401,7 @@ public class ProfileController implements Initializable{
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + dives + " dives!");
 	    		al.showAndWait();
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 		 	else {
 		 		progDive.setProgress(100);
@@ -387,7 +409,7 @@ public class ProfileController implements Initializable{
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to over 1500 dives!" + " please touch grass <3");
 	    		al.showAndWait();
-		 		
+	    		outProgDive.setText(dives + "/" + total);
 		 	}
 	 }
 	 
@@ -402,103 +424,119 @@ public class ProfileController implements Initializable{
 		 	if(wikis < total) {
 		 		progress = (wikis /total);
 		 		progWiki.setProgress(progress);
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 10) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 50) {
 		 		total = 50.0;
 		 		progress = (wikis/total);
 		 		progWiki.setProgress(progress);
 		 		System.out.println(progress);
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 50) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 100) {
 		 		total = 100.0;
 		 		progress = (wikis /total);
 		 		progWiki.setProgress(progress);
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 100) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 250) {
 		 		total = 250.0;
 		 		progress = (wikis /total);
 		 		progWiki.setProgress(progress);
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 250) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 500) {
 		 		total = 500.0;
 		 		progress = (wikis /total);
 		 		progWiki.setProgress(progress);
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 500) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 750) {
 		 		total = 750.0;
 		 		progress = (wikis /total);
 		 		progWiki.setProgress(progress);
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 750) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 1000) {
 		 		total = 1000.0;
 		 		progress = (wikis /total);
 		 		progWiki.setProgress(progress);
-		 		
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 1000) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 1250) {
 		 		total = 1250.0;
 		 		progress = (wikis /total);
-		 		progWiki.setProgress(progress);;
+		 		progWiki.setProgress(progress);
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 1250) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if(wikis < 1500) {
 		 		total = 1500.0;
 		 		progress = (wikis /total);
 		 		progWiki.setProgress(progress);
-		 		
+		 		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else if( wikis == 1500) {
 		 		Alert al = new Alert(AlertType.INFORMATION);
 		 		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to " + wikis + " wikis!");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 		 	else {
 		 		progWiki.setProgress(100);
@@ -506,7 +544,9 @@ public class ProfileController implements Initializable{
 	    		al.setTitle("Info");
 	    		al.setContentText("Congratulations on getting to over 1500 wikis!" + " please touch grass <3");
 	    		al.showAndWait();
+	    		outProgWiki.setText(wikis + "/" + total);
 		 	}
 	 }
+	 
 }
 

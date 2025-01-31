@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.test9.ProfileController">
    <children>
-      <Label fx:id="title" layoutX="272.0" layoutY="14.0" text="My profile" />
+      <Label fx:id="title" layoutX="261.0" layoutY="14.0" text="My profile" />
       <Label fx:id="OutError" layoutX="83.0" layoutY="257.0" text="Wrong username or password" visible="false" wrapText="true" />
       <TableView fx:id="genresTable" layoutX="14.0" layoutY="57.0" prefHeight="318.0" prefWidth="244.0">
         <columns>
@@ -53,9 +53,11 @@
             <Label fx:id="outSaves" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Label fx:id="outDIves" layoutX="508.0" layoutY="278.0" text="Total Dives" />
-      <Label fx:id="outWikis" layoutX="508.0" layoutY="319.0" text="Total WIkis" />
+      <Label fx:id="outDives" layoutX="508.0" layoutY="278.0" text="Total Dives" />
+      <Label fx:id="outWikis" layoutX="508.0" layoutY="319.0" text="Total Wikis" />
       <ProgressBar fx:id="progDive" layoutX="302.0" layoutY="275.0" prefHeight="25.0" prefWidth="205.0" progress="0.0" />
       <ProgressBar fx:id="progWiki" layoutX="302.0" layoutY="316.0" prefHeight="25.0" prefWidth="205.0" progress="0.0" />
+      <Label fx:id="outProgDive" layoutX="391.0" layoutY="279.0" text="Label" />
+      <Label fx:id="outProgWiki" layoutX="391.0" layoutY="320.0" text="Label" />
    </children>
 </AnchorPane>
