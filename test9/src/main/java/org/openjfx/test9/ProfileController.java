@@ -148,7 +148,7 @@ public class ProfileController implements Initializable{
 
 	@Override
 	 public void initialize(URL location, ResourceBundle resources) {
-		
+		try {
 		genresTable.setOnMouseClicked(event -> {
 
             if (event.getClickCount() == 2) { // Check for double-click
@@ -184,6 +184,13 @@ public class ProfileController implements Initializable{
 		populateGrid();
 		
 		populateProgBars();
+		}catch(Exception e) {
+			//Alert al = new Alert(AlertType.INFORMATION);
+    		//al.setTitle("Info");
+    		//al.setContentText(e.toString());
+    		System.out.println(e.toString());
+    		//al.showAndWait();
+		}
 		
 	}
 	
@@ -241,6 +248,10 @@ public class ProfileController implements Initializable{
 				}
 			}
 			
+			if(genres.size() == 0) {
+				Gens X = new Gens ("","");
+				genres.add(X);
+			}
 			Cav.setCellValueFactory(new PropertyValueFactory<Gens,String>("Av"));
 			Cfavs.setCellValueFactory(new PropertyValueFactory<Gens, String>("Fav"));
 			genresTable.setItems(genres);
@@ -284,6 +295,7 @@ public class ProfileController implements Initializable{
 		 	Usuario last = userData.get("last");
 		 	
 		 	int dives =last.getDives()[0];
+		 	outProgDive.setText("0/10");
 		 	
 		 	if(dives < total) {
 		 		progress = (dives /total);
@@ -418,6 +430,7 @@ public class ProfileController implements Initializable{
 		 	Double progress = 0.0;
 			HashMap <String,Usuario> userData = J.deserializarUser(path);
 		 	Usuario last = userData.get("last");
+		 	outProgWiki.setText("0/10");
 		 	
 		 	int wikis =last.getWikis()[0];
 		 	

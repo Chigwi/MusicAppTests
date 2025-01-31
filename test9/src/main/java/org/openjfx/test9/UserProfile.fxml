@@ -57,7 +57,7 @@
       <Label fx:id="outWikis" layoutX="508.0" layoutY="319.0" text="Total Wikis" />
       <ProgressBar fx:id="progDive" layoutX="302.0" layoutY="275.0" prefHeight="25.0" prefWidth="205.0" progress="0.0" />
       <ProgressBar fx:id="progWiki" layoutX="302.0" layoutY="316.0" prefHeight="25.0" prefWidth="205.0" progress="0.0" />
-      <Label fx:id="outProgDive" layoutX="391.0" layoutY="279.0" text="Label" />
-      <Label fx:id="outProgWiki" layoutX="391.0" layoutY="320.0" text="Label" />
+      <Label fx:id="outProgDive" layoutX="391.0" layoutY="279.0" text="0/10" />
+      <Label fx:id="outProgWiki" layoutX="391.0" layoutY="320.0" text="0/10" />
    </children>
 </AnchorPane>
