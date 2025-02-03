@@ -234,6 +234,11 @@ public class ProfileController implements Initializable{
 			int max = Math.max(lisFavs.size(), lisAvs.size());
 			
 			for (int i = 0; i < max; i++) {
+				
+				if(lisFavs.size()==0) {
+					Gens x = new Gens("",lisAvs.get(i));
+					genres.add(x);
+				}
 				if(i<lisFavs.size() && i<lisAvs.size()) {
 					Gens x = new Gens (lisFavs.get(i),lisAvs.get(i));
 					genres.add(x);
